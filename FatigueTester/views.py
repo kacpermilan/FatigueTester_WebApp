@@ -8,7 +8,7 @@ def welcome(request):
 
 
 def start_tests(request):
-    return HttpResponse('Start Tests page')
+    return render(request, 'Tests_web.html')
 
 
 def database(request):
