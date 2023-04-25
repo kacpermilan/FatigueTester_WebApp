@@ -5,17 +5,20 @@
     <title>Fatigue Test</title>
     <style>
 		.test_area {
-			width: 50%;
+			width: 75%;
 			height: 500px;
 			margin: 0 auto;
-			background-color: #f0f0f0;
-			border: 1px solid #ccc;
+			background-color: #F7FAF8;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			font-size: 2em;
 			font-weight: bold;
 			color: #333;
+            border-radius: 20px;
+            border: none;
+            position: relative;
+
 		}
         #big_text {
             font-size: 24px;
@@ -24,11 +27,71 @@
             text-align: center;
             font-family: 'Roboto', sans-serif;
         }
+        .test_button {
+            width: 150px;
+            height: 80px;
+            margin: 20px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .buttons_container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+
+        .button1 {
+            background-color: #FA395A;
+        }
+        .button2 {
+            background-color: #3C77E0;
+        }
+        .button3 {
+            background-color: #81E0A9;
+        }
+        .button4 {
+            background-color: #FFE15E;
+        }
+        .button5 {
+            background-color: black;
+        }
     </style>
 </head>
+
 <body>
-    <p id="big_text"></big_text><b>Fatigue Test</b></p>
+    <p id="big_text"><b>Fatigue Test</b></p>
     <div class="test_area">
-	</div>
+        <div class="buttons_container">
+            <input type="button" class="test_button button1" value="">
+            <input type="button" class="test_button button2" value="">
+            <input type="button" class="test_button button3" value="">
+            <input type="button" class="test_button button4" value="">
+            <input type="button" class="test_button button5" value="">
+        </div>
+    </div>
+
+    <div id="time_elapsed_container"></div>
+    <script>
+    let start_time = Date.now();
+        let time_elapsed_container = document.getElementById('time_elapsed_container');
+
+        function handleClick() {
+            let time_elapsed = Date.now() - start_time;
+            let seconds_elapsed = time_elapsed / 1000;
+            time_elapsed_container.innerHTML = "Time elapsed: " + seconds_elapsed.toFixed(2) + " seconds";
+        }
+
+        document.querySelectorAll('.test_button').forEach(item => {
+            item.addEventListener('click', handleClick);
+             });
+    </script>
 </body>
 </html>
