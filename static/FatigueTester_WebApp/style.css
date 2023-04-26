@@ -1,0 +1,63 @@
+.test_area {
+    width: 75%;
+    height: 500px;
+    margin: 0 auto;
+    background-color: #F7FAF8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+    border-radius: 20px;
+    border: none;
+    position: relative;
+}
+
+#big_text {
+    font-size: 24px;
+    color: darkslateblue;
+    font-weight: normal;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.test_button {
+    width: 150px;
+    height: 80px;
+    margin: 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.buttons_container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.button1 {
+    background-color: #FA395A;
+}
+
+.button2 {
+    background-color: #3C77E0;
+}
+
+.button3 {
+    background-color: #81E0A9;
+}
+
+.button4 {
+    background-color: #FFE15E;
+}
+
+.button5 {
+    background-color: #333;
+}
