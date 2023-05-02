@@ -18,5 +18,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('FatigueTester.urls')),
+    path('', include('FatigueTester.urls')),    # Include the FatigueTester application's urls
 ]

@@ -1,19 +1,25 @@
-from django.http import HttpResponse
 from django.shortcuts import render
 
 
-# Create your views here.
-def welcome(request):
+def main_menu(request):
     return render(request, 'main_menu.html')
 
 
+def login_user(request):
+    pass
+
+
+def logout_user(request):
+    pass
+
+
 def start_tests(request):
-    return render(request, 'Tests_web.html')
+    return render(request, 'tests_web.html')
 
 
 def database(request):
-    return HttpResponse('Database page')
+    pass
 
 
 def login(request):
-    return HttpResponse('Login page')
+    pass

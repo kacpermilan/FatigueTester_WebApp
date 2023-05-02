@@ -13,4 +13,5 @@ from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FatigueTester_WebApp.settings')
 
+# Web Server Gateway Interface for Python Web Applications
 application = get_wsgi_application()

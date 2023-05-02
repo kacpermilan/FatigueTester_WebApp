@@ -1,0 +1,32 @@
+{% extends 'app_base.html' %}
+
+{% block content %}
+
+<p id="big_text"><b>Fatigue Test</b></p>
+<div class="test_area">
+    <div class="buttons_container">
+        <input type="button" class="test_button button1" value="">
+        <input type="button" class="test_button button2" value="">
+        <input type="button" class="test_button button3" value="">
+        <input type="button" class="test_button button4" value="">
+        <input type="button" class="test_button button5" value="">
+    </div>
+</div>
+
+<div id="time_elapsed_container"></div>
+<script>
+let start_time = Date.now();
+    let time_elapsed_container = document.getElementById('time_elapsed_container');
+
+    function handleClick() {
+        let time_elapsed = Date.now() - start_time;
+        let seconds_elapsed = time_elapsed / 1000;
+        time_elapsed_container.innerHTML = "Time elapsed: " + seconds_elapsed.toFixed(2) + " seconds";
+    }
+
+    document.querySelectorAll('.test_button').forEach(item => {
+        item.addEventListener('click', handleClick);
+         });
+</script>
+
+{% endblock %}
