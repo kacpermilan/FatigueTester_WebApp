@@ -1,8 +1,9 @@
 {% extends 'app_base.html' %}
+{% load i18n %}
 
 {% block content %}
 
-    <p id="big_text"><b>Fatigue Test</b></p>
+    <p id="big_text"><b>{% trans 'Fatigue Test' %}</b></p>
     <div class="test_area">
         <div class="buttons_container">
             <input type="button" class="test_button button1" value="">

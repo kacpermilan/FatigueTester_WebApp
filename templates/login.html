@@ -1,4 +1,5 @@
 {% extends 'app_base.html' %}
+{% load i18n %}
 
 {% block content %}
 
@@ -7,12 +8,12 @@
     <form method="POST" action="{% url 'main_menu' %}">
         {% csrf_token %}
         <div class="mb-3">
-            <input type="text" class="form-control" name="email_field" placeholder="E-mail" required>
+            <input type="text" class="form-control" name="email_field" placeholder="{% trans 'E-mail' %}" required>
         </div>
         <div class="mb-3">
-            <input type="password" class="form-control" name="password_field" placeholder="Password" required>
+            <input type="password" class="form-control" name="password_field" placeholder="{% trans 'Password' %}" required>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">{% trans 'Submit' %}</button>
     </form>
 
 {% endblock %}

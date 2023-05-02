@@ -1,19 +1,32 @@
 {% load static %}
+{% load i18n %}
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'main_menu' %}">
-            <img src="{% static 'icon.png' %}" alt="Logo" width=60 height="48" class="d-inline-block align-text-center font-size-18">
-            Mental Fatigue Tester
+            <img class="d-inline-block" src="{% static 'icon.png' %}" alt="Logo" width=60 height="48">
+            <span class="fs-3 ms-3">{% trans 'Mental Fatigue Tester' %}</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-login">
             {% if user.is_authenticated %}
-                <a class="btn btn-primary" href="{% url 'login' %}"> Log Out </a>
+                <a class="btn btn-primary" href="{% url 'login' %}"> {% trans "Logout" %} </a>
             {% else %}
-                <a class="btn btn-primary" href="{% url 'login' %}"> Login </a>
+                <a class="btn btn-primary" href="{% url 'login' %}"> {% trans "Login" %} </a>
+            {% endif %}
+
+            {% load i18n %}
+            {% get_current_language as current_language %}
+            {% if current_language == 'en' %}
+                <a class="navbar-brand ms-3" href="{% url 'switch_language' 'pl' %}">
+                    <img src="{% static 'pl.jpg' %}" alt="Polski" width=80 height="40"/>
+                </a>
+            {% elif current_language == 'pl' %}
+                <a class="navbar-brand ms-3" href="{% url 'switch_language' 'en' %}">
+                    <img src="{% static 'en.jpg' %}" alt="English" width=80 height="40"/>
+                </a>
             {% endif %}
         </div>
     </div>

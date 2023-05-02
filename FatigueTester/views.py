@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.utils.translation import activate
+from django.utils.translation import gettext as _
 
 
 def main_menu(request):
@@ -12,11 +14,11 @@ def main_menu(request):
 
         if user is not None:
             login(request, user)
-            messages.success(request, "You have been logged in")
+            messages.success(request, _("You have been logged in"))
             return redirect('main_menu')
 
         else:
-            messages.success(request, "There was an error logging in, please try again")
+            messages.success(request, _("There was an error logging in, please try again"))
             return redirect('login')
 
     return render(request, 'main_menu.html')
@@ -28,8 +30,9 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    messages.success(request, "You have been log out")
+    messages.success(request, _("You have been log out"))
     return redirect('main_menu')
+
 
 def start_tests(request):
     return render(request, 'tests_web.html')
@@ -37,3 +40,8 @@ def start_tests(request):
 
 def database(request):
     pass
+
+
+def switch_language(request, language):
+    activate(language)
+    return redirect(request.META.get('HTTP_REFERER', '/'))

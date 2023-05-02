@@ -7,4 +7,5 @@ urlpatterns = [
     path('logout/', views.logout_user, name='logout'),
     path('start_tests/', views.start_tests, name='start_tests'),
     path('database/', views.database, name='database'),
+    path('switch-language/<str:language>/', views.switch_language, name='switch_language'),
 ]
