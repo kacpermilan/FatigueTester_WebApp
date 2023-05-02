@@ -1,0 +1,18 @@
+{% extends 'app_base.html' %}
+
+{% block content %}
+
+    <h1 class="mt-5 mb-3"> Login </h1>
+
+    <form method="POST" action="{% url 'main_menu' %}">
+        {% csrf_token %}
+        <div class="mb-3">
+            <input type="text" class="form-control" name="email_field" placeholder="E-mail" required>
+        </div>
+        <div class="mb-3">
+            <input type="password" class="form-control" name="password_field" placeholder="Password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+{% endblock %}
