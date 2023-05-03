@@ -1,0 +1,4 @@
+Django==4.1
+django-bootstrap5==23.1
+pymysql==1.0.3
+sqlite==3.41.1
