@@ -12,7 +12,7 @@
         </button>
         <div class="navbar-login">
             {% if user.is_authenticated %}
-                <a class="btn btn-primary" href="{% url 'login' %}"> {% trans "Logout" %} </a>
+                <a class="btn btn-primary" href="{% url 'logout' %}"> {% trans "Logout" %} </a>
             {% else %}
                 <a class="btn btn-primary" href="{% url 'login' %}"> {% trans "Login" %} </a>
             {% endif %}
