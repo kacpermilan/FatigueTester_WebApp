@@ -3,6 +3,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.utils.translation import activate
 from django.utils.translation import gettext as _
+from django.http import JsonResponse
+from .models import ClassesTest
 
 
 def main_menu(request):
@@ -39,7 +41,9 @@ def start_tests(request):
 
 
 def database(request):
-    pass
+    data = ClassesTest.objects.all().values()
+    data_list = list(data)
+    return JsonResponse(data_list, safe=False)
 
 
 def switch_language(request, language):
