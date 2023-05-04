@@ -14,14 +14,6 @@
     position: relative;
 }
 
-#big_text {
-    font-size: 24px;
-    color: darkslateblue;
-    font-weight: normal;
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-}
-
 .test_button {
     width: 150px;
     height: 80px;
@@ -64,12 +56,11 @@
 
 .rectangle {
     position: absolute;
-    top: 50%;
-    left: 48%;
+    top: 30%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    width: 150px;
-    height: 80px;
-    margin: 20px;
+    width: 200px;
+    height: 120px;
     border-radius: 10px;
     border: none;
     background-color: #ccc;
