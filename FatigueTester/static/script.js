@@ -44,3 +44,23 @@ function startTimer() {
     // Reset the start time
     startTime = new Date().getTime();
 }
+
+// Clock
+ var clockTime = null; // Define a variable to store the start time
+
+// Function to start the timer
+function startClock() {
+    if (clockTime === null) { // Check if this is the first click
+        clockTime = new Date().getTime(); // Store the start time
+        setInterval(updateClock, 0); // Start the clock
+    }
+}
+
+// Function to update the clock
+function updateClock() {
+    var currentTime = new Date().getTime();
+    var elapsedTime = currentTime - clockTime;
+    var seconds = Math.floor(elapsedTime / 1000);
+    var clock = document.querySelector('#clock');
+    clock.textContent = 'Time elapsed: ' + seconds + ' seconds';
+}

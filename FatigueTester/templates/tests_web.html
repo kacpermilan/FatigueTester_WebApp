@@ -4,16 +4,17 @@
 {% block content %}
 
     <div class="test_area">
+
+        <div id="clock" ></div>
         <div id="rectangle" class ="rectangle">
             <div id="rectangle_text">Click one of the buttons to start!</div>
         </div>
-
         <div class="buttons_container">
-            <input type="button" class="test_button button1" value="" onclick="startTimer(); changeColor();">
-            <input type="button" class="test_button button2" value="" onclick="startTimer(); changeColor();">
-            <input type="button" class="test_button button3" value="" onclick="startTimer(); changeColor();">
-            <input type="button" class="test_button button4" value="" onclick="startTimer(); changeColor();">
-            <input type="button" class="test_button button5" value="" onclick="startTimer(); changeColor();">
+            <input type="button" class="test_button button1" value="" onclick="startTimer(); changeColor(); startClock();">
+            <input type="button" class="test_button button2" value="" onclick="startTimer(); changeColor(); startClock();">
+            <input type="button" class="test_button button3" value="" onclick="startTimer(); changeColor(); startClock();">
+            <input type="button" class="test_button button4" value="" onclick="startTimer(); changeColor(); startClock();">
+            <input type="button" class="test_button button5" value="" onclick="startTimer(); changeColor(); startClock();">
         </div>
     </div>
 
