@@ -61,3 +61,16 @@
 .button5 {
     background-color: #333;
 }
+
+.rectangle {
+    position: absolute;
+    top: 50%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 80px;
+    margin: 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: #ccc;
+}
