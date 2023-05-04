@@ -2,7 +2,7 @@
 var colors = ["red", "green", "blue", "yellow", "black"];
 
 // Function to change the color of the rectangle and it's text
-    function changeColor() {
+ function changeColor() {
 
       // Do I even use this function?
         console.log("changeColor() called");
