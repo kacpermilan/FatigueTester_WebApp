@@ -12,9 +12,15 @@
         </button>
         <div class="navbar-login">
             {% if user.is_authenticated %}
-                <a class="btn btn-primary" href="{% url 'logout' %}"> {% trans "Logout" %} </a>
+                <span class="logged-in-user"> {% trans 'Welcome' %}, {{ user.username }}</span>
             {% else %}
-                <a class="btn btn-primary" href="{% url 'login' %}"> {% trans "Login" %} </a>
+                <a class="btn btn-primary" href="{% url 'register' %}"> {% trans "Register" %} </a>
+            {% endif %}
+
+            {% if user.is_authenticated %}
+                <a class="btn btn-primary ms-3" href="{% url 'logout' %}"> {% trans "Logout" %} </a>
+            {% else %}
+                <a class="btn btn-primary ms-3" href="{% url 'login' %}"> {% trans "Login" %} </a>
             {% endif %}
 
             {% load i18n %}

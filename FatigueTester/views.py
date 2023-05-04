@@ -5,6 +5,7 @@ from django.utils.translation import activate
 from django.utils.translation import gettext as _
 from django.http import JsonResponse
 from .models import ClassesTest
+from .forms import RegisterForm
 
 
 def main_menu(request):
@@ -34,6 +35,23 @@ def logout_user(request):
     logout(request)
     messages.success(request, _("You have been log out"))
     return redirect('main_menu')
+
+
+def register_user(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            group = form.cleaned_data['account_type']
+            group.user_set.add(user)
+
+            # Auto-login after registration
+            login(request, user)
+            messages.success(request, _("You have been successfully registered"))
+            return redirect('main_menu')
+
+    form = RegisterForm()
+    return render(request, 'register.html', {'form': form})
 
 
 def start_tests(request):
