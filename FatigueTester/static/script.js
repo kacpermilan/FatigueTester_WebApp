@@ -17,8 +17,13 @@ var colors = ["red", "green", "blue", "yellow", "black"];
       // Set the color of the rectangle to the button color
         document.getElementById("rectangle").style.backgroundColor = buttonColor;
 
+
       //Set text in rectangle to color
         rectangle.textContent = colors[randomNumbertext];
+        rectangle.style.textAlign = "center";
+        rectangle.style.lineHeight = "120px";
+        rectangle.style.textShadow = "0 0 2px gray, 0 0 2px gray, 0 0 2px gray, 0 0 2px gray";
+        document.getElementById("rectangle").style.color = "white";
     }
 
 // Start the timer
@@ -62,5 +67,5 @@ function updateClock() {
     var elapsedTime = currentTime - clockTime;
     var seconds = Math.floor(elapsedTime / 1000);
     var clock = document.querySelector('#clock');
-    clock.textContent = 'Time elapsed: ' + seconds + ' seconds';
+    clock.textContent = seconds
 }
