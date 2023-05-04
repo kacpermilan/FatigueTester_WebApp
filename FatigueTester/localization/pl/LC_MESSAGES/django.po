@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-02 20:51+0200\n"
+"POT-Creation-Date: 2023-05-04 20:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,50 +20,131 @@ msgstr ""
 "%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
 "%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-#: .\FatigueTester\views.py:17
-msgid "You have been logged in"
-msgstr "Zalogowano pomyślnie"
+#: .\FatigueTester\forms.py:16
+msgid "Email Address"
+msgstr "Adres Email"
 
-#: .\FatigueTester\views.py:21
-msgid "There was an error logging in, please try again"
-msgstr "Wystąpił problem przy próbie zalogowania, proszę spróbuj ponownie"
+#: .\FatigueTester\forms.py:20
+msgid "First Name"
+msgstr "Imię"
 
-#: .\FatigueTester\views.py:33
-msgid "You have been log out"
-msgstr "Wylogowano pomyślnie"
+#: .\FatigueTester\forms.py:24
+msgid "Last Name"
+msgstr "Nazwisko"
 
-#: .\templates\app_base.html:11 .\templates\navbar.html:8
-msgid "Mental Fatigue Tester"
-msgstr "Aplikacja do Pomiaru Stopnia Zmęczenia Umysłowego"
+#: .\FatigueTester\forms.py:25
+msgid "Account Type"
+msgstr "Typ Konta"
 
-#: .\templates\login.html:11
-msgid "E-mail"
-msgstr "E-mail"
+#: .\FatigueTester\forms.py:33
+msgid "Username"
+msgstr "Nazwa Użytkownika"
 
-#: .\templates\login.html:14
+#: .\FatigueTester\forms.py:35
+msgid ""
+"<span class=\"form-text text-muted\"><small>Required. 150 characters or "
+"fewer. Letters, digits and @/./+/-/_ only.</small></span>"
+msgstr ""
+"<span class=\"form-text text-muted\"><small>Wymagane. 150 znaków lub mniej. "
+"Tylko litery, cyfry oraz @/./+/-/_.</small></span>"
+
+#: .\FatigueTester\forms.py:39 .\FatigueTester\templates\login.html:14
 msgid "Password"
 msgstr "Hasło"
 
-#: .\templates\login.html:16
-msgid "Submit"
-msgstr "Zaloguj"
+#: .\FatigueTester\forms.py:41
+msgid ""
+"<ul class=\"form-text text-muted small\"><li>Your password can't be too "
+"similar to your other personal information.</li><li>Your password must "
+"contain at least 8 characters.</li><li>Your password can't be a commonly "
+"used password.</li><li>Your password can't be entirely numeric.</li></ul>"
+msgstr ""
+"<ul class=\"form-text text-muted small\"><li>Twoje hasło nie może być za "
+"bardzo podobne do twoich informacji osobistych.</li><li>Twoje hasło musi "
+"mieć conajmniej 8 znaków.</li><li>Twoje hasło nie może być dobrze znanym "
+"hasłem.</li><li>Twoje hasło nie może składać się wyłącznie z cyfr.</li></ul>"
 
-#: .\templates\main_menu.html:7
-msgid "Start Tests"
-msgstr "Rozpocznij Test"
+#: .\FatigueTester\forms.py:48
+msgid "Confirm Password"
+msgstr "Potwierdź Hasło"
 
-#: .\templates\main_menu.html:8
-msgid "Tests Database"
-msgstr "Baza Danych z Testami"
+#: .\FatigueTester\forms.py:50
+msgid ""
+"<span class=\"form-text text-muted\"><small>Enter the same password as "
+"before, for verification.</small></span>"
+msgstr ""
+"<span class=\"form-text text-muted\"><small>Wprowadź takie samo hasło jak "
+"poprzednio, dla weryfikacji.</small></span>"
 
-#: .\templates\navbar.html:15
-msgid "Logout"
-msgstr "Wyloguj"
+#: .\FatigueTester\templates\app_base.html:12
+#: .\FatigueTester\templates\navbar.html:8
+msgid "Mental Fatigue Tester"
+msgstr "Aplikacja do Pomiaru Stopnia Zmęczenia Umysłowego"
 
-#: .\templates\navbar.html:17
+#: .\FatigueTester\templates\login.html:6
+#: .\FatigueTester\templates\navbar.html:23
 msgid "Login"
 msgstr "Zaloguj"
 
-#: .\templates\tests_web.html:6
-msgid "Fatigue Test"
-msgstr "Test Zmęczenia"
+#: .\FatigueTester\templates\login.html:11
+msgid "E-mail"
+msgstr "E-mail"
+
+#: .\FatigueTester\templates\login.html:16
+msgid "Submit"
+msgstr "Zaloguj"
+
+#: .\FatigueTester\templates\main_menu.html:7
+msgid "Start Tests"
+msgstr "Rozpocznij Test"
+
+#: .\FatigueTester\templates\main_menu.html:8
+msgid "Tests Database"
+msgstr "Baza Danych z Testami"
+
+#: .\FatigueTester\templates\navbar.html:15
+msgid "Welcome"
+msgstr "Witaj"
+
+#: .\FatigueTester\templates\navbar.html:17
+#: .\FatigueTester\templates\register.html:7
+#: .\FatigueTester\templates\register.html:25
+msgid "Register"
+msgstr "Zarejestruj"
+
+#: .\FatigueTester\templates\navbar.html:21
+msgid "Logout"
+msgstr "Wyloguj"
+
+#: .\FatigueTester\templates\register.html:13
+msgid "Your Form Has Errors"
+msgstr "Twój formularz ma błędy"
+
+#: .\FatigueTester\templates\register.html:19
+msgid "Close"
+msgstr "Zamknij"
+
+#: .\FatigueTester\views.py:20
+msgid "You have been logged in"
+msgstr "Zalogowano pomyślnie"
+
+#: .\FatigueTester\views.py:24
+msgid "There was an error logging in, please try again"
+msgstr "Wystąpił problem przy próbie zalogowania, proszę spróbuj ponownie"
+
+#: .\FatigueTester\views.py:36
+msgid "You have been log out"
+msgstr "Wylogowano pomyślnie"
+
+#: .\FatigueTester\views.py:50
+msgid "You have been successfully registered"
+msgstr "Zarejestrowano pomyślnie"
+
+msgid "Patient"
+msgstr "Pacjent"
+
+msgid "Supervisor"
+msgstr "Lekarz/Nadzorujący"
+
+#~ msgid "Fatigue Test"
+#~ msgstr "Test Zmęczenia"
