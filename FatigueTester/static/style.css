@@ -56,18 +56,18 @@
 
 .rectangle {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 200px;
     height: 120px;
     border-radius: 10px;
     border: none;
-    background-color: #ccc;
+    background-color: transparent;
+    font-size: 1.8em;
 }
 
 .rectangle_text {
-
 }
 
 #clock {
@@ -75,7 +75,7 @@
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-weight: bold;
     color: #333;
 }

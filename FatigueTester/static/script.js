@@ -1,11 +1,10 @@
- //Defining the text in rectangle
+
+//Defining the text in rectangle
 var colors = ["red", "green", "blue", "yellow", "black"];
 
 // Function to change the color of the rectangle and it's text
  function changeColor() {
 
-      // Do I even use this function?
-        console.log("changeColor() called");
 
       // Get a random number between 1 and 5
         var randomNumber = Math.floor(Math.random() * 5) + 1;
@@ -14,16 +13,11 @@ var colors = ["red", "green", "blue", "yellow", "black"];
       // Get the color of the corresponding button
         var buttonColor = window.getComputedStyle(document.querySelector(".button" + randomNumber)).getPropertyValue("background-color");
 
-      // Set the color of the rectangle to the button color
-        document.getElementById("rectangle").style.backgroundColor = buttonColor;
-
-
-      //Set text in rectangle to color
+      //Set text color and content
         rectangle.textContent = colors[randomNumbertext];
         rectangle.style.textAlign = "center";
         rectangle.style.lineHeight = "120px";
-        rectangle.style.textShadow = "0 0 2px gray, 0 0 2px gray, 0 0 2px gray, 0 0 2px gray";
-        document.getElementById("rectangle").style.color = "white";
+        document.getElementById("rectangle").style.color = buttonColor;
     }
 
 // Start the timer
@@ -69,3 +63,6 @@ function updateClock() {
     var clock = document.querySelector('#clock');
     clock.textContent = seconds
 }
+
+
+
