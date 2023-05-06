@@ -3,8 +3,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.utils.translation import activate
 from django.utils.translation import gettext as _
-from .models import ClassesTest, SurveyResult
-from .forms import RegisterForm
+from .models import SurveyResult
+from .forms import RegisterForm, SurveyForm
 
 
 def main_menu(request):
@@ -23,7 +23,24 @@ def main_menu(request):
             messages.success(request, _("There was an error logging in, please try again"))
             return redirect('login')
 
-    return render(request, 'main_menu.html')
+    return render(request, 'main.html')
+
+
+def new_survey(request):
+    if not request.user.is_authenticated:
+        messages.success(request, _("This section is available only for logged in users"))
+        return redirect('login')
+
+    form = SurveyForm(request.POST or None)
+    if request.method == "POST":
+        if form.is_valid():
+            add_survey = form.save(commit=False)
+            add_survey.user = request.user
+            add_survey.save()
+            messages.success(request, _("Thank you for your feedback!"))
+            return redirect('main_menu')
+
+    return render(request, 'new_survey.html', {'form': form})
 
 
 def login_user(request):
@@ -61,17 +78,22 @@ def register_user(request):
     return render(request, 'register.html', {'form': form})
 
 
-def start_tests(request):
-    return render(request, 'tests_web.html')
-
-
 def display_userdata(request):
     if not request.user.is_authenticated:
         messages.success(request, _("This section is available only for logged in users"))
         return redirect('login')
 
-    classes_obj = ClassesTest.objects.all()
-    return render(request, 'userdata.html', {'classes_obj': classes_obj})
+    classes_obj = SurveyResult.objects.all()
+    return render(request, 'user_data.html', {'classes_obj': classes_obj})
+
+
+def survey_record(request, pk):
+    if not request.user.is_authenticated:
+        messages.success(request, _("This section is available only for logged in users"))
+        return redirect('login')
+
+    matching_record = SurveyResult.objects.get(id=pk)
+    return render(request, 'survey_record.html', {'survey_record': matching_record})
 
 
 def switch_language(request, language):

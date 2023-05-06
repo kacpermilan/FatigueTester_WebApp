@@ -7,18 +7,16 @@
     <table class="table table-striped table-hover table-bordered mt-5 mb-3">
         <thead class="table-primary">
             <tr>
-                <th scope="col"> Name of Class </th>
-                <th scope="col"> Type of Class </th>
-                <th scope="col"> Exam </th>
-                <th scope="col"> Comment </th>
+                <th scope="col"> {% trans 'Survey ID' %} </th>
+                <th scope="col"> {% trans 'Test Rating' %} </th>
+                <th scope="col"> {% trans 'User Comment' %} </th>
             </tr>
         </thead>
         <tbody>
             {% for record in classes_obj %}
                 <tr>
-                    <td>{{ record.name_of_class }}</td>
-                    <td>{{ record.type_of_class }}</td>
-                    <td>{{ record.exam }}</td>
+                    <td><a href="{% url 'survey_display' record.id %}">{{ record.id }}</a></td>
+                    <td>{{ record.rating }}</td>
                     <td>{{ record.comment }}</td>
                 </tr>
             {% endfor %}

@@ -1,0 +1,29 @@
+{% extends 'app_base.html' %}
+{% load i18n %}
+
+{% block content %}
+    <h1 class="mt-5 mb-3"> {% trans 'Tell us about your experience with the app!' %} </h1>
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label for="{{ form.rating.id_for_label }}" class="form-label fs-5">
+                {% trans 'Correctness of the test results' %}:
+            </label><br>
+            {% for choice in form.rating %}
+                <div class="form-check form-check-inline">
+                    {{ choice }}
+                    <label class="form-check-label" for="{{ choice.id_for_label }}"/>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="mb-3 form-floating">
+            {{ form.comment }}
+            <label for="{{ form.comment.id_for_label }}" class="form-label">
+                {% trans 'Comment (optional)' %}:
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary">{% trans 'Submit' %}</button>
+    </form>
+{% endblock %}

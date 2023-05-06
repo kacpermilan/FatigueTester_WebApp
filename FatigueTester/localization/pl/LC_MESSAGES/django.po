@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-04 20:14+0200\n"
+"POT-Creation-Date: 2023-05-06 14:28+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -82,7 +82,7 @@ msgid "Mental Fatigue Tester"
 msgstr "Aplikacja do Pomiaru Stopnia Zmęczenia Umysłowego"
 
 #: .\FatigueTester\templates\login.html:6
-#: .\FatigueTester\templates\navbar.html:23
+#: .\FatigueTester\templates\navbar.html:31
 msgid "Login"
 msgstr "Zaloguj"
 
@@ -92,27 +92,27 @@ msgstr "E-mail"
 
 #: .\FatigueTester\templates\login.html:16
 msgid "Submit"
-msgstr "Zaloguj"
+msgstr "Wyślij"
 
-#: .\FatigueTester\templates\main_menu.html:7
+#: .\FatigueTester\templates\navbar.html:15
 msgid "Start Tests"
 msgstr "Rozpocznij Test"
 
-#: .\FatigueTester\templates\main_menu.html:8
+#: .\FatigueTester\templates\navbar.html:17
 msgid "Tests Database"
 msgstr "Baza Danych z Testami"
 
-#: .\FatigueTester\templates\navbar.html:15
+#: .\FatigueTester\templates\navbar.html:23
 msgid "Welcome"
 msgstr "Witaj"
 
-#: .\FatigueTester\templates\navbar.html:17
+#: .\FatigueTester\templates\navbar.html:25
 #: .\FatigueTester\templates\register.html:7
 #: .\FatigueTester\templates\register.html:25
 msgid "Register"
 msgstr "Zarejestruj"
 
-#: .\FatigueTester\templates\navbar.html:21
+#: .\FatigueTester\templates\navbar.html:29
 msgid "Logout"
 msgstr "Wyloguj"
 
@@ -124,21 +124,33 @@ msgstr "Twój formularz ma błędy"
 msgid "Close"
 msgstr "Zamknij"
 
-#: .\FatigueTester\views.py:20
+#: .\FatigueTester\templates\tests_web.html:7
+msgid "To start the test click any of the buttons bellow!"
+msgstr "Kliknij dowolny przycisk aby rozpocząć!"
+
+#: .\FatigueTester\views.py:19
 msgid "You have been logged in"
 msgstr "Zalogowano pomyślnie"
 
-#: .\FatigueTester\views.py:24
+#: .\FatigueTester\views.py:23
 msgid "There was an error logging in, please try again"
 msgstr "Wystąpił problem przy próbie zalogowania, proszę spróbuj ponownie"
 
-#: .\FatigueTester\views.py:36
+#: .\FatigueTester\views.py:31 .\FatigueTester\views.py:45
+msgid "You are already logged in"
+msgstr "Użytkownik jest już zalogowany"
+
+#: .\FatigueTester\views.py:39
 msgid "You have been log out"
 msgstr "Wylogowano pomyślnie"
 
-#: .\FatigueTester\views.py:50
+#: .\FatigueTester\views.py:57
 msgid "You have been successfully registered"
 msgstr "Zarejestrowano pomyślnie"
+
+#: .\FatigueTester\views.py:66 .\FatigueTester\views.py:75
+msgid "This section is available only for logged in users"
+msgstr "Ta sekcja jest dostępna tylko dla zalogowanych użytkowników"
 
 msgid "Patient"
 msgstr "Pacjent"

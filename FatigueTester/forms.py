@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.models import Group
 from django.utils.translation import gettext_lazy as _
+from .models import SurveyResult
 
 
 class TranslatedGroupModelChoiceField(forms.ModelChoiceField):
@@ -10,21 +11,49 @@ class TranslatedGroupModelChoiceField(forms.ModelChoiceField):
         return _(obj.name)
 
 
+class SurveyForm(forms.ModelForm):
+    RATING_CHOICES = [(i, i) for i in range(1, 6)]
+
+    rating = forms.ChoiceField(
+        label='Test',
+        choices=RATING_CHOICES,
+        widget=forms.RadioSelect(attrs={'class': 'form-check-input'})
+    )
+    comment = forms.CharField(
+        label='',
+        required=False,
+        widget=forms.Textarea(attrs={'class': 'form-control', 'style': "height: 100px"})
+    )
+
+    class Meta:
+        model = SurveyResult
+        fields = ('rating', 'comment')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['rating'].initial = 4
+
+
 class RegisterForm(UserCreationForm):
-    email = forms.EmailField(label='',
-                             widget=forms.TextInput(attrs={'class': 'form-control',
-                                                           "placeholder": _('Email Address')}))
-    first_name = forms.CharField(label='',
-                                 max_length=100,
-                                 widget=forms.TextInput(attrs={'class': 'form-control',
-                                                               'placeholder': _('First Name')}))
-    last_name = forms.CharField(label='',
-                                max_length=100,
-                                widget=forms.TextInput(attrs={'class': 'form-control',
-                                                              'placeholder': _('Last Name')}))
-    account_type = TranslatedGroupModelChoiceField(label=_('Account Type'),
-                                                   queryset=Group.objects.filter(name__in=['Patient', 'Supervisor']),
-                                                   widget=forms.Select(attrs={'class': 'form-control'}))
+    email = forms.EmailField(
+        label='',
+        widget=forms.TextInput(attrs={'class': 'form-control', "placeholder": _('Email Address')})
+    )
+    first_name = forms.CharField(
+        label='',
+        max_length=100,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('First Name')})
+    )
+    last_name = forms.CharField(
+        label='',
+        max_length=100,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Last Name')})
+    )
+    account_type = TranslatedGroupModelChoiceField(
+        label=_('Account Type'),
+        queryset=Group.objects.filter(name__in=['Patient', 'Supervisor']),
+        widget=forms.Select(attrs={'class': 'form-control'})
+    )
 
     def __init__(self, *args, **kwargs):
         super(RegisterForm, self).__init__(*args, **kwargs)

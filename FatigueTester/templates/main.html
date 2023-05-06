@@ -4,11 +4,10 @@
 {% block content %}
 
     <figure class="text-center">
-    <h1>To start the test click any of the buttons bellow!</h1>
+        <h1 class="mt-5 mb-3"> {% trans 'To start the test click any of the buttons bellow!' %} </h1>
     </figure>
     <div class="test_area">
-
-        <div id="clock" ></div>
+        <div id="clock"></div>
         <div id="rectangle" class ="rectangle">
             <div id="rectangle_text" class = "rectangle_text"></div>
         </div>
@@ -19,6 +18,12 @@
             <input type="button" class="test_button button4" value="" onclick="changeColor(); startClock();">
             <input type="button" class="test_button button5" value="" onclick="changeColor(); startClock();">
         </div>
+    </div>
+
+    <div class="survey_access_temp_section text-center mt-5">
+        <a class="btn btn-primary" href="{% url 'survey' %}">
+            Tymczasowy placeholder dla ankiety (powinna wyskoczyć po testach {jeśli użytkownik zalogowany})
+        </a>
     </div>
 
 {% endblock %}
