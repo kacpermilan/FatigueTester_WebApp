@@ -1,46 +1,45 @@
 // Start the timer
-var startTime = new Date().getTime();
+let startTime = new Date().getTime();
 
 //Defining the text in rectangle
-var colors = ["red", "blue", "green", "yellow", "black"];
+const colors = ["red", "blue", "green", "yellow", "black"];
 
 // Define an empty array to store table data
-var tableOne = [];
+let tableData = [];
 
 // Function to log table data to console
 function logTableData() {
-    console.log(tableOne);
+    console.log(tableData);
 }
+
 // Function to change the color and content of text
  function changeColor() {
+    // Get a random number between 1 and 5
+    let randomNumber = Math.floor(Math.random() * 5) + 1;
+    let randomNumbertext = Math.floor(Math.random() * 5);
 
+    // Check if the clicked button number matches the random number
+    let match = buttonNumber === randomNumber ? 1 : 0;
 
-      // Get a random number between 1 and 5
-        var randomNumber = Math.floor(Math.random() * 5) + 1;
-        var randomNumbertext = Math.floor(Math.random() * 5);
+    // Get the color of the corresponding button
+    let buttonColor = window.getComputedStyle(document.querySelector(".button" + randomNumber)).getPropertyValue("background-color");
 
-      // Check if the clicked button number matches the random number
-        var match = buttonNumber === randomNumber ? 1 : 0;
+    //Set text color and content
+    rectangle.textContent = colors[randomNumbertext];
+    rectangle.style.textAlign = "center";
+    rectangle.style.lineHeight = "120px";
+    document.getElementById("rectangle").style.color = buttonColor;
 
-      // Get the color of the corresponding button
-        var buttonColor = window.getComputedStyle(document.querySelector(".button" + randomNumber)).getPropertyValue("background-color");
+    // Calculate the elapsed time since the timer started
+    let currentTime = new Date().getTime();
+    let elapsedTime = currentTime - startTime;
 
-      //Set text color and content
-        rectangle.textContent = colors[randomNumbertext];
-        rectangle.style.textAlign = "center";
-        rectangle.style.lineHeight = "120px";
-        document.getElementById("rectangle").style.color = buttonColor;
-
-      // Calculate the elapsed time since the timer started
-        var currentTime = new Date().getTime();
-        var elapsedTime = currentTime - startTime;
-
-      // Push the data to the table
-        tableOne.push({ match: match, timeElapsed: elapsedTime });
+    // Push the data to the table
+    tableData.push({ match: match, timeElapsed: elapsedTime });
     }
 
 // Clock
- var clockTime = null; // Define a variable to store the start time
+ let clockTime = null; // Define a variable to store the start time
 
 // Function to start the timer
 function startClock() {
@@ -52,10 +51,10 @@ function startClock() {
 
 // Function to update the clock
 function updateClock() {
-    var currentTime = new Date().getTime();
-    var elapsedTime = currentTime - clockTime;
-    var seconds = Math.floor(elapsedTime / 1000);
-    var clock = document.querySelector('#clock');
-    clock.textContent = seconds
+    let currentTime = new Date().getTime();
+    let elapsedTime = currentTime - clockTime;
+    let seconds = Math.floor(elapsedTime / 1000);
+    let clock = document.querySelector('#clock');
+    clock.textContent = seconds.toString()
 }
 
