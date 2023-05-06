@@ -22,7 +22,7 @@ msgstr ""
 
 #: .\FatigueTester\forms.py:36
 msgid "E-mail Address"
-msgstr "Adres Email"
+msgstr "Adres E-mail"
 
 #: .\FatigueTester\forms.py:41 .\FatigueTester\templates\user_profile.html:14
 msgid "First Name"

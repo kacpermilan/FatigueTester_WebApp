@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.utils.translation import activate
 from django.utils.translation import gettext as _
 from django.utils.timezone import now
-from .models import SurveyResult
+from .models import SurveyResult, PatientModel
 from .forms import RegisterForm, SurveyForm
 
 
@@ -97,8 +97,8 @@ def display_userdata(request):
 
     # tests_obj =
     surveys_data = SurveyResult.objects.filter(user_id=request.user)
-    # patient_data =
-    return render(request, 'user_data.html', {'surveys_data': surveys_data})
+    patient_data = PatientModel.objects.filter(user_id=request.user)
+    return render(request, 'user_data.html', {'surveys_data': surveys_data, 'patient_data': patient_data})
 
 
 def survey_record(request, pk):
