@@ -21,6 +21,7 @@
         <div class="navbar-login">
             {% if user.is_authenticated %}
                 <span class="logged-in-user text-primary mx-2 fs-5 fw-bold align-middle text-white"> {% trans 'Welcome' %}, {{ user.username }}</span>
+                <a class="btn btn-primary" href="{% url 'user_profile' %}"> {% trans "User Profile" %} </a>
             {% else %}
                 <a class="btn btn-primary" href="{% url 'register' %}"> {% trans "Register" %} </a>
             {% endif %}

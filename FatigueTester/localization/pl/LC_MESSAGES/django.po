@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-06 17:33+0200\n"
+"POT-Creation-Date: 2023-05-06 18:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,27 +20,27 @@ msgstr ""
 "%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
 "%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-#: .\FatigueTester\forms.py:40
+#: .\FatigueTester\forms.py:36
 msgid "Email Address"
 msgstr "Adres Email"
 
-#: .\FatigueTester\forms.py:45
+#: .\FatigueTester\forms.py:41
 msgid "First Name"
 msgstr "Imię"
 
-#: .\FatigueTester\forms.py:50
+#: .\FatigueTester\forms.py:46
 msgid "Last Name"
 msgstr "Nazwisko"
 
-#: .\FatigueTester\forms.py:53
+#: .\FatigueTester\forms.py:49
 msgid "Account Type"
 msgstr "Typ Konta"
 
-#: .\FatigueTester\forms.py:62
+#: .\FatigueTester\forms.py:58
 msgid "Username"
 msgstr "Nazwa Użytkownika"
 
-#: .\FatigueTester\forms.py:64
+#: .\FatigueTester\forms.py:60
 msgid ""
 "<span class=\"form-text text-muted\"><small>Required. 150 characters or "
 "fewer. Letters, digits and @/./+/-/_ only.</small></span>"
@@ -48,11 +48,11 @@ msgstr ""
 "<span class=\"form-text text-muted\"><small>Wymagane. 150 znaków lub mniej. "
 "Tylko litery, cyfry oraz @/./+/-/_.</small></span>"
 
-#: .\FatigueTester\forms.py:68 .\FatigueTester\templates\login.html:14
+#: .\FatigueTester\forms.py:64 .\FatigueTester\templates\user_login.html:14
 msgid "Password"
 msgstr "Hasło"
 
-#: .\FatigueTester\forms.py:70
+#: .\FatigueTester\forms.py:66
 msgid ""
 "<ul class=\"form-text text-muted small\"><li>Your password can't be too "
 "similar to your other personal information.</li><li>Your password must "
@@ -64,11 +64,11 @@ msgstr ""
 "mieć conajmniej 8 znaków.</li><li>Twoje hasło nie może być dobrze znanym "
 "hasłem.</li><li>Twoje hasło nie może składać się wyłącznie z cyfr.</li></ul>"
 
-#: .\FatigueTester\forms.py:77
+#: .\FatigueTester\forms.py:73
 msgid "Confirm Password"
 msgstr "Potwierdź Hasło"
 
-#: .\FatigueTester\forms.py:79
+#: .\FatigueTester\forms.py:75
 msgid ""
 "<span class=\"form-text text-muted\"><small>Enter the same password as "
 "before, for verification.</small></span>"
@@ -79,21 +79,7 @@ msgstr ""
 #: .\FatigueTester\templates\app_base.html:12
 #: .\FatigueTester\templates\navbar.html:8
 msgid "Mental Fatigue Tester"
-msgstr "Aplikacja do Pomiaru Stopnia Zmęczenia Umysłowego"
-
-#: .\FatigueTester\templates\login.html:6
-#: .\FatigueTester\templates\navbar.html:31
-msgid "Login"
-msgstr "Zaloguj"
-
-#: .\FatigueTester\templates\login.html:11
-msgid "E-mail"
-msgstr "E-mail"
-
-#: .\FatigueTester\templates\login.html:16
-#: .\FatigueTester\templates\new_survey.html:27
-msgid "Submit"
-msgstr "Wyślij"
+msgstr "Tester Zmęczenia Umysłowego"
 
 #: .\FatigueTester\templates\main.html:7
 msgid "To start the test click any of the buttons bellow!"
@@ -111,35 +97,44 @@ msgstr "Baza Danych z Testami"
 msgid "Welcome"
 msgstr "Witaj"
 
-#: .\FatigueTester\templates\navbar.html:25
-#: .\FatigueTester\templates\register.html:7
-#: .\FatigueTester\templates\register.html:25
+#: .\FatigueTester\templates\navbar.html:24
+#: .\FatigueTester\templates\user_profile.html:6
+msgid "User Profile"
+msgstr "Profil Użytkownika"
+
+#: .\FatigueTester\templates\navbar.html:26
+#: .\FatigueTester\templates\user_register.html:7
+#: .\FatigueTester\templates\user_register.html:25
 msgid "Register"
 msgstr "Zarejestruj"
 
-#: .\FatigueTester\templates\navbar.html:29
+#: .\FatigueTester\templates\navbar.html:30
 msgid "Logout"
 msgstr "Wyloguj"
 
-#: .\FatigueTester\templates\new_survey.html:5
-msgid "Tell us about the correctness of test result, so we can improve the application!"
+#: .\FatigueTester\templates\navbar.html:32
+#: .\FatigueTester\templates\user_login.html:6
+msgid "Login"
+msgstr "Zaloguj"
+
+#: .\FatigueTester\templates\survey_new.html:5
+msgid ""
+"Tell us about the correctness of test result, so we can improve the "
+"application!"
 msgstr "Oceń poprawność wyniku testu w celu poprawy działania aplikacji!"
 
-#: .\FatigueTester\templates\new_survey.html:11
+#: .\FatigueTester\templates\survey_new.html:11
 msgid "Correctness of the test results"
 msgstr "Poprawność wyniku testu"
 
-#: .\FatigueTester\templates\new_survey.html:24
+#: .\FatigueTester\templates\survey_new.html:24
 msgid "Comment (optional)"
 msgstr "Komentarz (opcjonalny)"
 
-#: .\FatigueTester\templates\register.html:13
-msgid "Your Form Has Errors"
-msgstr "Twój formularz ma błędy"
-
-#: .\FatigueTester\templates\register.html:19
-msgid "Close"
-msgstr "Zamknij"
+#: .\FatigueTester\templates\survey_new.html:27
+#: .\FatigueTester\templates\user_login.html:16
+msgid "Submit"
+msgstr "Wyślij"
 
 #: .\FatigueTester\templates\user_data.html:10
 msgid "Survey Date"
@@ -153,6 +148,22 @@ msgstr "Ocena Skuteczności Testu"
 msgid "Comment"
 msgstr "Komentarz"
 
+#: .\FatigueTester\templates\user_login.html:11
+msgid "E-mail"
+msgstr "E-mail"
+
+#: .\FatigueTester\templates\user_profile.html:15
+msgid "No groups"
+msgstr ""
+
+#: .\FatigueTester\templates\user_register.html:13
+msgid "Your Form Has Errors"
+msgstr "Twój formularz ma błędy"
+
+#: .\FatigueTester\templates\user_register.html:19
+msgid "Close"
+msgstr "Zamknij"
+
 #: .\FatigueTester\views.py:22
 msgid "You have been logged in"
 msgstr "Zalogowano pomyślnie"
@@ -162,7 +173,7 @@ msgid "There was an error logging in, please try again"
 msgstr "Wystąpił problem przy próbie zalogowania, proszę spróbuj ponownie"
 
 #: .\FatigueTester\views.py:34 .\FatigueTester\views.py:87
-#: .\FatigueTester\views.py:97
+#: .\FatigueTester\views.py:95 .\FatigueTester\views.py:105
 msgid "This section is available only for logged in users"
 msgstr "Ta sekcja jest dostępna tylko dla zalogowanych użytkowników"
 
@@ -182,11 +193,11 @@ msgstr "Wylogowano pomyślnie"
 msgid "You have been successfully registered"
 msgstr "Zarejestrowano pomyślnie"
 
-#~ msgid "Patient"
-#~ msgstr "Pacjent"
+msgid "Patient"
+msgstr "Pacjent"
 
-#~ msgid "Supervisor"
-#~ msgstr "Lekarz/Nadzorujący"
+msgid "Supervisor"
+msgstr "Lekarz/Nadzorujący"
 
 #~ msgid "Fatigue Test"
 #~ msgstr "Test Zmęczenia"

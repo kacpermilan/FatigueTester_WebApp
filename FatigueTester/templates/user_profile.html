@@ -1,0 +1,47 @@
+{% extends 'app_base.html' %}
+{% load i18n %}
+
+{% block content %}
+
+    <h1 class="mt-5 mb-3"> {% trans 'User Profile' %} </h1>
+
+    <div class="card">
+        <div class="card-header">
+            <p class="font-monospace fs-2"> {{ user.username }} </p>
+        </div>
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-4 col-md-2 fw-bold">{% trans 'First Name' %}:</div>
+                <div class="col">{{ user.first_name }}</div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-4 col-md-2 fw-bold">{% trans 'Last Name' %}:</div>
+                <div class="col">{{ user.last_name }}</div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-4 col-md-2 fw-bold">{% trans 'E-mail Address' %}:</div>
+                <div class="col">{{ user.email }}</div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-4 col-md-2 fw-bold">{% trans 'Account Type' %}:</div>
+                <div class="col">
+                    {% for group in user.groups.all %}
+                        {% trans group.name %}
+                    {% empty %}
+                        {% trans 'No groups' %}
+                    {% endfor %}
+                </div>
+            </div>
+{#            <a href="" class="btn btn-primary mt-3">#}
+{#                {% trans 'Change Password' %}#}
+{#            </a>#}
+        </div>
+    </div>
+
+
+
+
+
+
+
+{% endblock %}

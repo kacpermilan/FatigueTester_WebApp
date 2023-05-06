@@ -44,7 +44,7 @@ def new_survey(request):
             messages.success(request, _("Thank you for your feedback!"))
             return redirect('main_menu')
 
-    return render(request, 'new_survey.html', {'form': form})
+    return render(request, 'survey_new.html', {'form': form})
 
 
 def login_user(request):
@@ -52,7 +52,7 @@ def login_user(request):
         messages.success(request, _("You are already logged in"))
         return redirect('main_menu')
 
-    return render(request, 'login.html')
+    return render(request, 'user_login.html')
 
 
 def logout_user(request):
@@ -79,7 +79,15 @@ def register_user(request):
             return redirect('main_menu')
 
     form = RegisterForm()
-    return render(request, 'register.html', {'form': form})
+    return render(request, 'user_register.html', {'form': form})
+
+
+def display_user_profile(request):
+    if not request.user.is_authenticated:
+        messages.success(request, _("This section is available only for logged in users"))
+        return redirect('login')
+
+    return render(request, 'user_profile.html')
 
 
 def display_userdata(request):
