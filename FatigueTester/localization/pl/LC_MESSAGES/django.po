@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-06 14:28+0200\n"
+"POT-Creation-Date: 2023-05-06 17:33+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,27 +20,27 @@ msgstr ""
 "%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
 "%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-#: .\FatigueTester\forms.py:16
+#: .\FatigueTester\forms.py:40
 msgid "Email Address"
 msgstr "Adres Email"
 
-#: .\FatigueTester\forms.py:20
+#: .\FatigueTester\forms.py:45
 msgid "First Name"
 msgstr "Imię"
 
-#: .\FatigueTester\forms.py:24
+#: .\FatigueTester\forms.py:50
 msgid "Last Name"
 msgstr "Nazwisko"
 
-#: .\FatigueTester\forms.py:25
+#: .\FatigueTester\forms.py:53
 msgid "Account Type"
 msgstr "Typ Konta"
 
-#: .\FatigueTester\forms.py:33
+#: .\FatigueTester\forms.py:62
 msgid "Username"
 msgstr "Nazwa Użytkownika"
 
-#: .\FatigueTester\forms.py:35
+#: .\FatigueTester\forms.py:64
 msgid ""
 "<span class=\"form-text text-muted\"><small>Required. 150 characters or "
 "fewer. Letters, digits and @/./+/-/_ only.</small></span>"
@@ -48,11 +48,11 @@ msgstr ""
 "<span class=\"form-text text-muted\"><small>Wymagane. 150 znaków lub mniej. "
 "Tylko litery, cyfry oraz @/./+/-/_.</small></span>"
 
-#: .\FatigueTester\forms.py:39 .\FatigueTester\templates\login.html:14
+#: .\FatigueTester\forms.py:68 .\FatigueTester\templates\login.html:14
 msgid "Password"
 msgstr "Hasło"
 
-#: .\FatigueTester\forms.py:41
+#: .\FatigueTester\forms.py:70
 msgid ""
 "<ul class=\"form-text text-muted small\"><li>Your password can't be too "
 "similar to your other personal information.</li><li>Your password must "
@@ -64,11 +64,11 @@ msgstr ""
 "mieć conajmniej 8 znaków.</li><li>Twoje hasło nie może być dobrze znanym "
 "hasłem.</li><li>Twoje hasło nie może składać się wyłącznie z cyfr.</li></ul>"
 
-#: .\FatigueTester\forms.py:48
+#: .\FatigueTester\forms.py:77
 msgid "Confirm Password"
 msgstr "Potwierdź Hasło"
 
-#: .\FatigueTester\forms.py:50
+#: .\FatigueTester\forms.py:79
 msgid ""
 "<span class=\"form-text text-muted\"><small>Enter the same password as "
 "before, for verification.</small></span>"
@@ -91,8 +91,13 @@ msgid "E-mail"
 msgstr "E-mail"
 
 #: .\FatigueTester\templates\login.html:16
+#: .\FatigueTester\templates\new_survey.html:27
 msgid "Submit"
 msgstr "Wyślij"
+
+#: .\FatigueTester\templates\main.html:7
+msgid "To start the test click any of the buttons bellow!"
+msgstr "Kliknij dowolny przycisk aby rozpocząć!"
 
 #: .\FatigueTester\templates\navbar.html:15
 msgid "Start Tests"
@@ -116,6 +121,18 @@ msgstr "Zarejestruj"
 msgid "Logout"
 msgstr "Wyloguj"
 
+#: .\FatigueTester\templates\new_survey.html:5
+msgid "Tell us about the correctness of test result, so we can improve the application!"
+msgstr "Oceń poprawność wyniku testu w celu poprawy działania aplikacji!"
+
+#: .\FatigueTester\templates\new_survey.html:11
+msgid "Correctness of the test results"
+msgstr "Poprawność wyniku testu"
+
+#: .\FatigueTester\templates\new_survey.html:24
+msgid "Comment (optional)"
+msgstr "Komentarz (opcjonalny)"
+
 #: .\FatigueTester\templates\register.html:13
 msgid "Your Form Has Errors"
 msgstr "Twój formularz ma błędy"
@@ -124,39 +141,52 @@ msgstr "Twój formularz ma błędy"
 msgid "Close"
 msgstr "Zamknij"
 
-#: .\FatigueTester\templates\tests_web.html:7
-msgid "To start the test click any of the buttons bellow!"
-msgstr "Kliknij dowolny przycisk aby rozpocząć!"
+#: .\FatigueTester\templates\user_data.html:10
+msgid "Survey Date"
+msgstr "Data Ankiety"
 
-#: .\FatigueTester\views.py:19
+#: .\FatigueTester\templates\user_data.html:11
+msgid "Test Efficiency Rating"
+msgstr "Ocena Skuteczności Testu"
+
+#: .\FatigueTester\templates\user_data.html:12
+msgid "Comment"
+msgstr "Komentarz"
+
+#: .\FatigueTester\views.py:22
 msgid "You have been logged in"
 msgstr "Zalogowano pomyślnie"
 
-#: .\FatigueTester\views.py:23
+#: .\FatigueTester\views.py:26
 msgid "There was an error logging in, please try again"
 msgstr "Wystąpił problem przy próbie zalogowania, proszę spróbuj ponownie"
 
-#: .\FatigueTester\views.py:31 .\FatigueTester\views.py:45
-msgid "You are already logged in"
-msgstr "Użytkownik jest już zalogowany"
-
-#: .\FatigueTester\views.py:39
-msgid "You have been log out"
-msgstr "Wylogowano pomyślnie"
-
-#: .\FatigueTester\views.py:57
-msgid "You have been successfully registered"
-msgstr "Zarejestrowano pomyślnie"
-
-#: .\FatigueTester\views.py:66 .\FatigueTester\views.py:75
+#: .\FatigueTester\views.py:34 .\FatigueTester\views.py:87
+#: .\FatigueTester\views.py:97
 msgid "This section is available only for logged in users"
 msgstr "Ta sekcja jest dostępna tylko dla zalogowanych użytkowników"
 
-msgid "Patient"
-msgstr "Pacjent"
+#: .\FatigueTester\views.py:44
+msgid "Thank you for your feedback!"
+msgstr "Dziękujemy za twoją opinię!"
 
-msgid "Supervisor"
-msgstr "Lekarz/Nadzorujący"
+#: .\FatigueTester\views.py:52 .\FatigueTester\views.py:66
+msgid "You are already logged in"
+msgstr "Użytkownik jest już zalogowany"
+
+#: .\FatigueTester\views.py:60
+msgid "You have been log out"
+msgstr "Wylogowano pomyślnie"
+
+#: .\FatigueTester\views.py:78
+msgid "You have been successfully registered"
+msgstr "Zarejestrowano pomyślnie"
+
+#~ msgid "Patient"
+#~ msgstr "Pacjent"
+
+#~ msgid "Supervisor"
+#~ msgstr "Lekarz/Nadzorujący"
 
 #~ msgid "Fatigue Test"
 #~ msgstr "Test Zmęczenia"

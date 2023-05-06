@@ -12,7 +12,7 @@ class TranslatedGroupModelChoiceField(forms.ModelChoiceField):
 
 
 class SurveyForm(forms.ModelForm):
-    RATING_CHOICES = [(i, i) for i in range(1, 6)]
+    RATING_CHOICES = [(i, i) for i in range(5, 0, -1)]
 
     rating = forms.ChoiceField(
         label='Test',
@@ -28,10 +28,6 @@ class SurveyForm(forms.ModelForm):
     class Meta:
         model = SurveyResult
         fields = ('rating', 'comment')
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['rating'].initial = 4
 
 
 class RegisterForm(UserCreationForm):

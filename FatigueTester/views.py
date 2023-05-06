@@ -1,8 +1,11 @@
+import django.utils.timezone
+
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.utils.translation import activate
 from django.utils.translation import gettext as _
+from django.utils.timezone import now
 from .models import SurveyResult
 from .forms import RegisterForm, SurveyForm
 
@@ -36,6 +39,7 @@ def new_survey(request):
         if form.is_valid():
             add_survey = form.save(commit=False)
             add_survey.user = request.user
+            add_survey.date = now()
             add_survey.save()
             messages.success(request, _("Thank you for your feedback!"))
             return redirect('main_menu')
@@ -83,7 +87,8 @@ def display_userdata(request):
         messages.success(request, _("This section is available only for logged in users"))
         return redirect('login')
 
-    classes_obj = SurveyResult.objects.all()
+    classes_obj = SurveyResult.objects.filter(user_id=request.user)
+
     return render(request, 'user_data.html', {'classes_obj': classes_obj})
 
 
@@ -93,7 +98,7 @@ def survey_record(request, pk):
         return redirect('login')
 
     matching_record = SurveyResult.objects.get(id=pk)
-    return render(request, 'survey_record.html', {'survey_record': matching_record})
+    return render(request, 'test_record.html', {'survey_record': matching_record})
 
 
 def switch_language(request, language):

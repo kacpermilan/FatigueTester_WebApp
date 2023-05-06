@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block content %}
-    <h1 class="mt-5 mb-3"> {% trans 'Tell us about your experience with the app!' %} </h1>
+    <h2 class="mt-5 mb-3"> {% trans 'Tell us about the correctness of test result, so we can improve the application!' %} </h2>
     <form method="post">
         {% csrf_token %}
 
@@ -13,7 +13,7 @@
             {% for choice in form.rating %}
                 <div class="form-check form-check-inline">
                     {{ choice }}
-                    <label class="form-check-label" for="{{ choice.id_for_label }}"/>
+                    <label class="form-check-label" for="{{ choice.id_for_label }}"></label>
                 </div>
             {% endfor %}
         </div>
