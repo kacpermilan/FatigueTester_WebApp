@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-06 19:14+0200\n"
+"POT-Creation-Date: 2023-05-06 20:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
 #: .\FatigueTester\forms.py:36
-msgid "Email Address"
+msgid "E-mail Address"
 msgstr "Adres Email"
 
 #: .\FatigueTester\forms.py:41 .\FatigueTester\templates\user_profile.html:14
@@ -90,8 +90,8 @@ msgid "Start Tests"
 msgstr "Rozpocznij Test"
 
 #: .\FatigueTester\templates\navbar.html:17
-msgid "Tests Database"
-msgstr "Baza Danych z Testami"
+msgid "Tests Results"
+msgstr "Wyniki Testów"
 
 #: .\FatigueTester\templates\navbar.html:23
 msgid "Welcome"
@@ -153,14 +153,27 @@ msgid "Close"
 msgstr "Zamknij"
 
 #: .\FatigueTester\templates\user_data.html:10
+msgid "Tests"
+msgstr "Testy"
+
+#: .\FatigueTester\templates\user_data.html:15
+msgid "Surveys"
+msgstr "Ankiety"
+
+#: .\FatigueTester\templates\user_data.html:21
+#: .\FatigueTester\templates\user_data.html:27
+msgid "Patients"
+msgstr "Pacjenci"
+
+#: .\FatigueTester\templates\user_data.html:43
 msgid "Survey Date"
 msgstr "Data Ankiety"
 
-#: .\FatigueTester\templates\user_data.html:11
+#: .\FatigueTester\templates\user_data.html:44
 msgid "Test Efficiency Rating"
 msgstr "Ocena Skuteczności Testu"
 
-#: .\FatigueTester\templates\user_data.html:12
+#: .\FatigueTester\templates\user_data.html:45
 msgid "Comment"
 msgstr "Komentarz"
 
@@ -177,16 +190,8 @@ msgid "Your password has been changed successfully."
 msgstr "Twoje hasło zostało zmienione."
 
 #: .\FatigueTester\templates\user_password_change_done.html:7
-#, fuzzy
-#| msgid "User Profile"
 msgid "Return to User Profile"
-msgstr "Profil Użytkownika"
-
-#: .\FatigueTester\templates\user_profile.html:22
-#, fuzzy
-#| msgid "Email Address"
-msgid "E-mail Address"
-msgstr "Adres Email"
+msgstr "Powrót do Profilu Użytkownika"
 
 #: .\FatigueTester\templates\user_profile.html:31
 msgid "No groups"
@@ -201,7 +206,7 @@ msgid "There was an error logging in, please try again"
 msgstr "Wystąpił problem przy próbie zalogowania, proszę spróbuj ponownie"
 
 #: .\FatigueTester\views.py:34 .\FatigueTester\views.py:87
-#: .\FatigueTester\views.py:95 .\FatigueTester\views.py:105
+#: .\FatigueTester\views.py:95 .\FatigueTester\views.py:106
 msgid "This section is available only for logged in users"
 msgstr "Ta sekcja jest dostępna tylko dla zalogowanych użytkowników"
 

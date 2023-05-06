@@ -1,27 +1,66 @@
 {% extends 'app_base.html' %}
 {% load i18n %}
+{% load group_filters %}
 
 {% block content %}
 
-{% if classes_obj %}
-    <table class="table table-striped table-hover table-bordered mt-5 mb-3">
-        <thead class="table-primary">
-            <tr>
-                <th scope="col"> {% trans 'Survey Date' %} </th>
-                <th scope="col"> {% trans 'Test Efficiency Rating' %} </th>
-                <th scope="col"> {% trans 'Comment' %} </th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for record in classes_obj %}
-                <tr>
-                    <td>{{ record.date }}</td>
-                    <td>{{ record.rating }}</td>
-                    <td>{{ record.comment }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-{% endif %}
+    <ul class="nav nav-pills nav-fill mt-5" id="myTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="tests-tab" data-bs-toggle="tab" href="#tests" role="tab" aria-controls="tab1" aria-selected="true">
+                {% trans 'Tests' %}
+            </a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="surveys-tab" data-bs-toggle="tab" href="#surveys" role="tab" aria-controls="tab2" aria-selected="false">
+                {% trans 'Surveys' %}
+            </a>
+        </li>
+        {% if user.groups.all|group_check:"Supervisor" %}
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="patients-tab" data-bs-toggle="tab" href="#patients" role="tab" aria-controls="tab3" aria-selected="false">
+                    {% trans 'Patients' %}
+                </a>
+            </li>
+        {% else %}
+            <li class="nav-item" role="presentation">
+                <a class="nav-link disabled">
+                    {% trans 'Patients' %}
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="tests" role="tabpanel" aria-labelledby="tab1-tab">
+            Kot
+        </div>
+        <div class="tab-pane fade" id="surveys" role="tabpanel" aria-labelledby="tab2-tab">
+            {% if surveys_data %}
+                <table class="table table-striped table-hover table-bordered mt-5">
+                    <thead class="table-primary">
+                        <tr>
+                            <th scope="col"> {% trans 'Survey Date' %} </th>
+                            <th scope="col"> {% trans 'Test Efficiency Rating' %} </th>
+                            <th scope="col"> {% trans 'Comment' %} </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for record in surveys_data %}
+                            <tr>
+                                <td>{{ record.date }}</td>
+                                <td>{{ record.rating }}</td>
+                                <td>{{ record.comment }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        </div>
+        {% if user.groups.all|group_check:"Supervisor" %}
+            <div class="tab-pane fade" id="patients" role="tabpanel" aria-labelledby="tab3-tab">
+
+            </div>
+        {% endif %}
+    </div>
 
 {% endblock %}

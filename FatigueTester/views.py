@@ -95,9 +95,10 @@ def display_userdata(request):
         messages.success(request, _("This section is available only for logged in users"))
         return redirect('login')
 
-    classes_obj = SurveyResult.objects.filter(user_id=request.user)
-
-    return render(request, 'user_data.html', {'classes_obj': classes_obj})
+    # tests_obj =
+    surveys_data = SurveyResult.objects.filter(user_id=request.user)
+    # patient_data =
+    return render(request, 'user_data.html', {'surveys_data': surveys_data})
 
 
 def survey_record(request, pk):

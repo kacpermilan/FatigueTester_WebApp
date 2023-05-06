@@ -33,7 +33,7 @@ class SurveyForm(forms.ModelForm):
 class RegisterForm(UserCreationForm):
     email = forms.EmailField(
         label='',
-        widget=forms.TextInput(attrs={'class': 'form-control', "placeholder": _('Email Address')})
+        widget=forms.TextInput(attrs={'class': 'form-control', "placeholder": _('E-mail Address')})
     )
     first_name = forms.CharField(
         label='',

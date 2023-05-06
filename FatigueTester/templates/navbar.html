@@ -14,7 +14,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <a class="btn btn-primary ms-3" href="{% url 'main_menu' %}"> {% trans 'Start Tests' %} </a>
             {% if user.is_authenticated %}
-                <a class="btn btn-primary ms-3" href="{% url 'database' %}"> {% trans 'Tests Database' %} </a>
+                <a class="btn btn-primary ms-3" href="{% url 'database' %}"> {% trans 'Tests Results' %} </a>
             {% endif %}
         </div>
 
