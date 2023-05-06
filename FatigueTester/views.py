@@ -3,8 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.utils.translation import activate
 from django.utils.translation import gettext as _
-from django.http import JsonResponse
-from .models import ClassesTest
+from .models import ClassesTest, SurveyResult
 from .forms import RegisterForm
 
 
@@ -28,6 +27,10 @@ def main_menu(request):
 
 
 def login_user(request):
+    if request.user.is_authenticated:
+        messages.success(request, _("You are already logged in"))
+        return redirect('main_menu')
+
     return render(request, 'login.html')
 
 
@@ -38,6 +41,10 @@ def logout_user(request):
 
 
 def register_user(request):
+    if request.user.is_authenticated:
+        messages.success(request, _("You are already logged in"))
+        return redirect('main_menu')
+
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
@@ -58,10 +65,13 @@ def start_tests(request):
     return render(request, 'tests_web.html')
 
 
-def database(request):
-    data = ClassesTest.objects.all().values()
-    data_list = list(data)
-    return JsonResponse(data_list, safe=False)
+def display_userdata(request):
+    if not request.user.is_authenticated:
+        messages.success(request, _("This section is available only for logged in users"))
+        return redirect('login')
+
+    classes_obj = ClassesTest.objects.all()
+    return render(request, 'userdata.html', {'classes_obj': classes_obj})
 
 
 def switch_language(request, language):

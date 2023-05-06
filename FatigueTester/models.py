@@ -4,10 +4,15 @@ from django.db import models
 
 
 class ClassesTest(models.Model):
-    name_of_class = models.TextField(primary_key=True   )
+    name_of_class = models.TextField(primary_key=True)
     type_of_class = models.TextField()
     exam = models.TextField()
     comment = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.name_of_class
+
+
+class SurveyResult(models.Model):
+    rating = models.IntegerField()
+    comment = models.TextField(blank=True, null=True)

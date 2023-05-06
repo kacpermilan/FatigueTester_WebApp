@@ -1,0 +1,29 @@
+{% extends 'app_base.html' %}
+{% load i18n %}
+
+{% block content %}
+
+{% if classes_obj %}
+    <table class="table table-striped table-hover table-bordered mt-5 mb-3">
+        <thead class="table-primary">
+            <tr>
+                <th scope="col"> Name of Class </th>
+                <th scope="col"> Type of Class </th>
+                <th scope="col"> Exam </th>
+                <th scope="col"> Comment </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in classes_obj %}
+                <tr>
+                    <td>{{ record.name_of_class }}</td>
+                    <td>{{ record.type_of_class }}</td>
+                    <td>{{ record.exam }}</td>
+                    <td>{{ record.comment }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+
+{% endblock %}

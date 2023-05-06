@@ -7,6 +7,6 @@ urlpatterns = [
     path('logout/', views.logout_user, name='logout'),
     path('register/', views.register_user, name='register'),
     path('start_tests/', views.start_tests, name='start_tests'),
-    path('database/', views.database, name='database'),
+    path('database/', views.display_userdata, name='database'),
     path('switch-language/<str:language>/', views.switch_language, name='switch_language'),
 ]
