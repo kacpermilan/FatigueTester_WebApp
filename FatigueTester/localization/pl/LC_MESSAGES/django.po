@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-06 18:04+0200\n"
+"POT-Creation-Date: 2023-05-06 19:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,15 +24,15 @@ msgstr ""
 msgid "Email Address"
 msgstr "Adres Email"
 
-#: .\FatigueTester\forms.py:41
+#: .\FatigueTester\forms.py:41 .\FatigueTester\templates\user_profile.html:14
 msgid "First Name"
 msgstr "Imię"
 
-#: .\FatigueTester\forms.py:46
+#: .\FatigueTester\forms.py:46 .\FatigueTester\templates\user_profile.html:18
 msgid "Last Name"
 msgstr "Nazwisko"
 
-#: .\FatigueTester\forms.py:49
+#: .\FatigueTester\forms.py:49 .\FatigueTester\templates\user_profile.html:26
 msgid "Account Type"
 msgstr "Typ Konta"
 
@@ -132,9 +132,25 @@ msgid "Comment (optional)"
 msgstr "Komentarz (opcjonalny)"
 
 #: .\FatigueTester\templates\survey_new.html:27
+#: .\FatigueTester\templates\user_change_password.html:25
 #: .\FatigueTester\templates\user_login.html:16
 msgid "Submit"
 msgstr "Wyślij"
+
+#: .\FatigueTester\templates\user_change_password.html:7
+#: .\FatigueTester\templates\user_profile.html:36
+msgid "Change Password"
+msgstr "Zmień Hasło"
+
+#: .\FatigueTester\templates\user_change_password.html:13
+#: .\FatigueTester\templates\user_register.html:13
+msgid "Your Form Has Errors"
+msgstr "Twój formularz ma błędy"
+
+#: .\FatigueTester\templates\user_change_password.html:19
+#: .\FatigueTester\templates\user_register.html:19
+msgid "Close"
+msgstr "Zamknij"
 
 #: .\FatigueTester\templates\user_data.html:10
 msgid "Survey Date"
@@ -152,17 +168,29 @@ msgstr "Komentarz"
 msgid "E-mail"
 msgstr "E-mail"
 
-#: .\FatigueTester\templates\user_profile.html:15
+#: .\FatigueTester\templates\user_password_change_done.html:5
+msgid "Password Change Successful"
+msgstr "Zmiana Hasła Zakończona Sukcesem"
+
+#: .\FatigueTester\templates\user_password_change_done.html:6
+msgid "Your password has been changed successfully."
+msgstr "Twoje hasło zostało zmienione."
+
+#: .\FatigueTester\templates\user_password_change_done.html:7
+#, fuzzy
+#| msgid "User Profile"
+msgid "Return to User Profile"
+msgstr "Profil Użytkownika"
+
+#: .\FatigueTester\templates\user_profile.html:22
+#, fuzzy
+#| msgid "Email Address"
+msgid "E-mail Address"
+msgstr "Adres Email"
+
+#: .\FatigueTester\templates\user_profile.html:31
 msgid "No groups"
-msgstr ""
-
-#: .\FatigueTester\templates\user_register.html:13
-msgid "Your Form Has Errors"
-msgstr "Twój formularz ma błędy"
-
-#: .\FatigueTester\templates\user_register.html:19
-msgid "Close"
-msgstr "Zamknij"
+msgstr "Brak grup"
 
 #: .\FatigueTester\views.py:22
 msgid "You have been logged in"
