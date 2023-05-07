@@ -17,7 +17,6 @@ function logTableData() {
 }
 // Functions for the buttons
 function redone() {
-    console.log('redone function called');
      buttonNumber = 1;
      testone();
      randomnumbers();
@@ -85,7 +84,7 @@ function testone() {
 
 // Clock
  let clockTime = null; // Define a variable to store the start time
-
+ let clockInterval = null;
 // Function to start the timer
 function startClock() {
     if (clockTime === null) { // Check if this is the first click
@@ -101,8 +100,13 @@ function updateClock() {
     let seconds = Math.floor(elapsedTime / 1000);
     let clock = document.querySelector('#clock');
     clock.textContent = seconds.toString()
-    if (elapsedTime == 30){
-
+    if (seconds == 31) {
+    clearInterval(clockInterval); // Stop the clock
+    alert('Time is up!'); // Show a popup
+    // Reset clock variables
+    clockTime = new Date().getTime();
+    clockInterval = null;
+    clock.textContent = "0";
     }
 }
 
