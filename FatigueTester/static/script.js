@@ -25,59 +25,46 @@ function logTableDataTwo() {
 // Functions for the buttons
 function redone() {
      buttonNumber = 1;
-     if (clockrestart === 0){
-         testone();
-     } else {
-         testtwo();
-     }
+     testparts();
      randomnumbers();
      changeColor();
 }
 
 function blueone() {
      buttonNumber = 2;
-      if (clockrestart == 0){
-         testone();
-     } else {
-         testtwo();
-     }
+     testparts();
      randomnumbers();
      changeColor();
 }
 
 function greenone() {
      buttonNumber = 3;
-      if (clockrestart == 0){
-         testone();
-     } else {
-         testtwo();
-     }
+     testparts();
      randomnumbers();
      changeColor();;
 }
 
 function yellowone() {
      buttonNumber = 4;
-      if (clockrestart == 0){
-         testone();
-     } else {
-         testtwo();
-     }
+     testparts();
      randomnumbers();
      changeColor();
 }
 
 function blackone() {
      buttonNumber = 5;
-      if (clockrestart == 0){
-         testone();
-     } else {
-         testtwo();
-     }
+     testparts();
      randomnumbers();
      changeColor();
 }
-
+function testparts() {
+      if (clockrestart == 0){
+         testone();
+     }
+      if (clockrestart === 1){
+         testtwo();
+     }
+}
 function randomnumbers() {
      // Get a random numbers for color and content of text
      randomNumber = Math.floor(Math.random() * 5) + 1;
@@ -139,7 +126,7 @@ function updateClock() {
     let seconds = Math.floor(elapsedTime / 1000);
     let clock = document.querySelector('#clock');
     clock.textContent = seconds.toString()
-    if (seconds == 6) {
+    if (seconds > 5) {
     clearInterval(clockInterval); // Stop the clock
     alert('Time is up!'); // Show a popup
     // Reset clock variables
