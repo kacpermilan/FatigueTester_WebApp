@@ -226,7 +226,7 @@ var category;
             category = "tired";
         }
     }
-     if (stos <= 0.85 && stos > 0.60 || meantime > 600 && meantime < 800){
+     if (stos <= 0.85 && stos > 0.60){
         if (meantime >= 1100){
             category = "exhausted";
         }
