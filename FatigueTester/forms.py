@@ -3,12 +3,20 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.models import Group
 from django.utils.translation import gettext_lazy as _
-from .models import SurveyResult
+from .models import SurveyResult, PatientModel
 
 
 class TranslatedGroupModelChoiceField(forms.ModelChoiceField):
     def label_from_instance(self, obj):
         return _(obj.name)
+
+
+class RequestForm(forms.ModelForm):
+    patient = forms.TextInput(attrs={'class': 'form-control', "placeholder": _("Patient's Username")})
+
+    class Meta:
+        model = PatientModel
+        fields = ('patient',)
 
 
 class SurveyForm(forms.ModelForm):

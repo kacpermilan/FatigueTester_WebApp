@@ -47,6 +47,7 @@
     </ul>
 
     <div class="tab-content">
+        {# TESTS #}
         <div class="tab-pane fade show active" id="tests" role="tabpanel" aria-labelledby="tab1-tab">
             {% if tests_data %}
 
@@ -54,6 +55,8 @@
                 <h3 class="mt-5 mb-3 text-center fst-italic">{% trans "There aren't any tests to display" %}</h3>
             {% endif %}
         </div>
+
+        {# SURVEYS #}
         <div class="tab-pane fade" id="surveys" role="tabpanel" aria-labelledby="tab2-tab">
             {% if surveys_data %}
                 <table class="table table-striped table-hover table-bordered mt-5">
@@ -78,8 +81,20 @@
                 <h3 class="mt-5 mb-3 text-center fst-italic">{% trans "There aren't any surveys to display" %}</h3>
             {% endif %}
         </div>
+
+        {# PATIENTS #}
         {% if user.groups.all|group_check:"Supervisor" and not patient_username %}
-            <div class="tab-pane fade" id="patients" role="tabpanel" aria-labelledby="tab3-tab">
+            <div class="tab-pane fade mt-3" id="patients" role="tabpanel" aria-labelledby="tab3-tab">
+                <div class="card">
+                    <h5 class="card-header">{% trans 'Invite the Patient' %}</h5>
+                    <div class="card-body">
+                        <form method="POST">
+                            {% csrf_token %}
+                            {{ request_form.patient }}
+                            <button type="submit" class="btn btn-primary mt-1"> {% trans 'Send Invitation' %} </button>
+                        </form>
+                    </div>
+                </div>
                 {% if patient_data %}
                     <table class="table table-striped table-hover table-bordered mt-5">
                         <thead class="table-primary">
@@ -109,5 +124,4 @@
             </div>
         {% endif %}
     </div>
-
 {% endblock %}

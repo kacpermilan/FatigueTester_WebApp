@@ -1,0 +1,48 @@
+{% extends 'app_base.html' %}
+{% load i18n %}
+
+{% block content %}
+    <h1 class="mt-5 mb-3">{% trans "Supervisors" %}</h1>
+    <ul class="list-group">
+        {% for supervisor in supervisors %}
+            <li class="list-group-item">
+                <div class="d-flex align-items-center">
+                    <span class="me-2">
+                        <strong> {{ supervisor.user }} </strong> {% trans "is your supervisor." %}
+                    </span>
+                    <form method="POST" action="{% url 'remove_supervisor' supervisor.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger ms-3 btn-sm">
+                            {% trans 'Remove Supervisor' %}
+                        </button>
+                    </form>
+                </div>
+            </li>
+        {% empty %}
+            <li class="list-group-item">{% trans "No supervisors." %}</li>
+        {% endfor %}
+    </ul>
+
+    <h1 class="mt-5 mb-3">{% trans "Pending Invitations" %}</h1>
+    <ul class="list-group">
+        {% for invite in pending_invitations %}
+            <li class="list-group-item">
+                <div class="d-flex align-items-center">
+                    <span class="me-2">
+                        <strong> {{ invite.user }} </strong> {% trans "has invited you to be your supervisor." %}
+                    </span>
+                    <form method="POST" action="{% url 'accept_invitation' invite.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-success ms-3">{% trans "Accept" %}</button>
+                    </form>
+                    <form method="POST" action="{% url 'decline_invitation' invite.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger ms-3">{% trans 'Decline' %}</button>
+                    </form>
+                </div>
+            </li>
+        {% empty %}
+            <li class="list-group-item">{% trans "No pending invitations." %}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

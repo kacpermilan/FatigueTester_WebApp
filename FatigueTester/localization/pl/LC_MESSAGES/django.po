@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-07 11:08+0200\n"
+"POT-Creation-Date: 2023-05-07 19:49+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,30 +20,34 @@ msgstr ""
 "%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
 "%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-#: .\FatigueTester\forms.py:36 .\FatigueTester\templates\user_data.html:90
-#: .\FatigueTester\templates\user_profile.html:22
+#: .\FatigueTester\forms.py:15
+msgid "Patient's Username"
+msgstr "Nazwa Pacjenta"
+
+#: .\FatigueTester\forms.py:44 .\FatigueTester\templates\user_data.html:105
+#: .\FatigueTester\templates\user_profile.html:23
 msgid "E-mail Address"
 msgstr "Adres E-mail"
 
-#: .\FatigueTester\forms.py:41 .\FatigueTester\templates\user_data.html:88
-#: .\FatigueTester\templates\user_profile.html:14
+#: .\FatigueTester\forms.py:49 .\FatigueTester\templates\user_data.html:103
+#: .\FatigueTester\templates\user_profile.html:15
 msgid "First Name"
 msgstr "Imię"
 
-#: .\FatigueTester\forms.py:46 .\FatigueTester\templates\user_data.html:89
-#: .\FatigueTester\templates\user_profile.html:18
+#: .\FatigueTester\forms.py:54 .\FatigueTester\templates\user_data.html:104
+#: .\FatigueTester\templates\user_profile.html:19
 msgid "Last Name"
 msgstr "Nazwisko"
 
-#: .\FatigueTester\forms.py:49 .\FatigueTester\templates\user_profile.html:26
+#: .\FatigueTester\forms.py:57 .\FatigueTester\templates\user_profile.html:27
 msgid "Account Type"
 msgstr "Typ Konta"
 
-#: .\FatigueTester\forms.py:58
+#: .\FatigueTester\forms.py:66
 msgid "Username"
 msgstr "Nazwa Użytkownika"
 
-#: .\FatigueTester\forms.py:60
+#: .\FatigueTester\forms.py:68
 msgid ""
 "<span class=\"form-text text-muted\"><small>Required. 150 characters or "
 "fewer. Letters, digits and @/./+/-/_ only.</small></span>"
@@ -51,11 +55,11 @@ msgstr ""
 "<span class=\"form-text text-muted\"><small>Wymagane. 150 znaków lub mniej. "
 "Tylko litery, cyfry oraz @/./+/-/_.</small></span>"
 
-#: .\FatigueTester\forms.py:64 .\FatigueTester\templates\user_login.html:14
+#: .\FatigueTester\forms.py:72 .\FatigueTester\templates\user_login.html:14
 msgid "Password"
 msgstr "Hasło"
 
-#: .\FatigueTester\forms.py:66
+#: .\FatigueTester\forms.py:74
 msgid ""
 "<ul class=\"form-text text-muted small\"><li>Your password can't be too "
 "similar to your other personal information.</li><li>Your password must "
@@ -67,11 +71,11 @@ msgstr ""
 "mieć conajmniej 8 znaków.</li><li>Twoje hasło nie może być dobrze znanym "
 "hasłem.</li><li>Twoje hasło nie może składać się wyłącznie z cyfr.</li></ul>"
 
-#: .\FatigueTester\forms.py:73
+#: .\FatigueTester\forms.py:81
 msgid "Confirm Password"
 msgstr "Potwierdź Hasło"
 
-#: .\FatigueTester\forms.py:75
+#: .\FatigueTester\forms.py:83
 msgid ""
 "<span class=\"form-text text-muted\"><small>Enter the same password as "
 "before, for verification.</small></span>"
@@ -84,7 +88,7 @@ msgstr ""
 msgid "Mental Fatigue Tester"
 msgstr "Tester Zmęczenia Umysłowego"
 
-#: .\FatigueTester\templates\main.html:7
+#: .\FatigueTester\templates\main.html:12
 msgid "To start the test click any of the buttons bellow!"
 msgstr "Kliknij dowolny przycisk aby rozpocząć!"
 
@@ -101,7 +105,7 @@ msgid "Welcome"
 msgstr "Witaj"
 
 #: .\FatigueTester\templates\navbar.html:24
-#: .\FatigueTester\templates\user_profile.html:6
+#: .\FatigueTester\templates\user_profile.html:7
 msgid "User Profile"
 msgstr "Profil Użytkownika"
 
@@ -141,7 +145,7 @@ msgid "Submit"
 msgstr "Wyślij"
 
 #: .\FatigueTester\templates\user_change_password.html:7
-#: .\FatigueTester\templates\user_profile.html:36
+#: .\FatigueTester\templates\user_profile.html:37
 msgid "Change Password"
 msgstr "Zmień Hasło"
 
@@ -161,7 +165,7 @@ msgstr "Powrót"
 
 #: .\FatigueTester\templates\user_data.html:14
 #: .\FatigueTester\templates\user_data.html:20
-#: .\FatigueTester\templates\user_data.html:91
+#: .\FatigueTester\templates\user_data.html:106
 msgid "Userdata"
 msgstr "Dane Użytkownika"
 
@@ -178,35 +182,43 @@ msgstr "Ankiety"
 msgid "Patients"
 msgstr "Pacjenci"
 
-#: .\FatigueTester\templates\user_data.html:54
+#: .\FatigueTester\templates\user_data.html:55
 msgid "There aren't any tests to display"
 msgstr "Brak testów do wyświetlenia"
 
-#: .\FatigueTester\templates\user_data.html:62
+#: .\FatigueTester\templates\user_data.html:65
 msgid "Survey Date"
 msgstr "Data Ankiety"
 
-#: .\FatigueTester\templates\user_data.html:63
+#: .\FatigueTester\templates\user_data.html:66
 msgid "Test Efficiency Rating"
 msgstr "Ocena Skuteczności Testu"
 
-#: .\FatigueTester\templates\user_data.html:64
+#: .\FatigueTester\templates\user_data.html:67
 msgid "Comment"
 msgstr "Komentarz"
 
-#: .\FatigueTester\templates\user_data.html:78
+#: .\FatigueTester\templates\user_data.html:81
 msgid "There aren't any surveys to display"
 msgstr "Brak ankiet do wyświetlenia"
 
-#: .\FatigueTester\templates\user_data.html:87
+#: .\FatigueTester\templates\user_data.html:89
+msgid "Invite the Patient"
+msgstr "Zaproś Pacjenta"
+
+#: .\FatigueTester\templates\user_data.html:94
+msgid "Send Invitation"
+msgstr "Wyślij Zaproszenie"
+
+#: .\FatigueTester\templates\user_data.html:102
 msgid "Patient"
 msgstr "Pacjent"
 
-#: .\FatigueTester\templates\user_data.html:101
+#: .\FatigueTester\templates\user_data.html:116
 msgid "Data"
 msgstr "Dane"
 
-#: .\FatigueTester\templates\user_data.html:107
+#: .\FatigueTester\templates\user_data.html:122
 msgid "There aren't any patients to display"
 msgstr "Brak pacjentów do wyświetlenia"
 
@@ -226,9 +238,51 @@ msgstr "Twoje hasło zostało zmienione."
 msgid "Return to User Profile"
 msgstr "Powrót do Profilu Użytkownika"
 
-#: .\FatigueTester\templates\user_profile.html:31
+#: .\FatigueTester\templates\user_profile.html:32
 msgid "No groups"
 msgstr "Brak grup"
+
+#: .\FatigueTester\templates\user_profile.html:41
+msgid "Supervisors and Invitations"
+msgstr "Lekarze/Nadzorujący i Zaproszenia"
+
+#: .\FatigueTester\templates\user_supervisors_and_invitations.html:5
+msgid "Supervisors"
+msgstr "Lekarze/Nadzorujący"
+
+#: .\FatigueTester\templates\user_supervisors_and_invitations.html:11
+msgid "is your supervisor."
+msgstr "jest Twoim Lekarzem/Nadzorującym"
+
+#: .\FatigueTester\templates\user_supervisors_and_invitations.html:16
+msgid "Remove Supervisor"
+msgstr "Usuń Lekarza/Nadzorującego"
+
+#: .\FatigueTester\templates\user_supervisors_and_invitations.html:22
+#, fuzzy
+#| msgid "Supervisor"
+msgid "No supervisors."
+msgstr "Lekarz/Nadzorujący"
+
+#: .\FatigueTester\templates\user_supervisors_and_invitations.html:26
+msgid "Pending Invitations"
+msgstr "Oczekujące Zaproszenia"
+
+#: .\FatigueTester\templates\user_supervisors_and_invitations.html:32
+msgid "has invited you to be your supervisor."
+msgstr "zaprosił Cię do do zostania Twoim Lekarzem/Nazdorującym"
+
+#: .\FatigueTester\templates\user_supervisors_and_invitations.html:36
+msgid "Accept"
+msgstr "Zaakceptuj"
+
+#: .\FatigueTester\templates\user_supervisors_and_invitations.html:40
+msgid "Decline"
+msgstr "Odrzuć"
+
+#: .\FatigueTester\templates\user_supervisors_and_invitations.html:45
+msgid "No pending invitations."
+msgstr "Brak oczekujących zaproszeń."
 
 #: .\FatigueTester\views.py:22
 msgid "You have been logged in"
@@ -239,8 +293,7 @@ msgid "There was an error logging in, please try again"
 msgstr "Wystąpił problem przy próbie zalogowania, proszę spróbuj ponownie"
 
 #: .\FatigueTester\views.py:34 .\FatigueTester\views.py:87
-#: .\FatigueTester\views.py:95 .\FatigueTester\views.py:108
-#: .\FatigueTester\views.py:133
+#: .\FatigueTester\views.py:95 .\FatigueTester\views.py:130
 msgid "This section is available only for logged in users"
 msgstr "Ta sekcja jest dostępna tylko dla zalogowanych użytkowników"
 
@@ -260,13 +313,37 @@ msgstr "Wylogowano pomyślnie"
 msgid "You have been successfully registered"
 msgstr "Zarejestrowano pomyślnie"
 
-#: .\FatigueTester\views.py:116
+#: .\FatigueTester\views.py:110
+msgid "Supervisor cannot become patient"
+msgstr "Lekarz/Nadzorujący nie może zostać pacjentem"
+
+#: .\FatigueTester\views.py:114
+msgid "User is already your patient or a request is pending"
+msgstr "Użytkownik jest już Twoim pacjentem lub zaproszenie oczekuje na akceptacje"
+
+#: .\FatigueTester\views.py:121
+msgid "Invitation Send"
+msgstr "Wysłano Zaproszenie"
+
+#: .\FatigueTester\views.py:138
 msgid "User not found."
 msgstr "Nie odnaleziono użytkownika"
 
-#: .\FatigueTester\views.py:127
+#: .\FatigueTester\views.py:149
 msgid "You don't have access to this Patient"
 msgstr "Nie masz dostępu do tego Pacjenta"
+
+#: .\FatigueTester\views.py:167
+msgid "Invitation accepted."
+msgstr "Zaakceptowano zaproszenie."
+
+#: .\FatigueTester\views.py:176
+msgid "Invitation declined."
+msgstr "Odrzucono zaproszenie."
+
+#: .\FatigueTester\views.py:185
+msgid "Supervisor Removed."
+msgstr "Usunięto Lekarza/Nadzorującego"
 
 msgid "Supervisor"
 msgstr "Lekarz/Nadzorujący"
