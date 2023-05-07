@@ -131,7 +131,7 @@
     border: none;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: fixed;
 }
 
 .results_text {

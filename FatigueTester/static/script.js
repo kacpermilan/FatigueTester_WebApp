@@ -253,7 +253,7 @@ var category;
     }
 console.log(category);
 var testArea = document.querySelector('.test_area');
-  var h1Element = document.querySelector('.mt-5.mb-3');
+var h1Element = document.querySelector('.mt-5.mb-3');
 
 // set their display property to none
 testArea.style.display = 'none';
