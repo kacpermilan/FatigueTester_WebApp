@@ -282,7 +282,7 @@ const data = {
   labels: rowNumbersone,
   datasets: [{
     label: 'Test part one',
-    data: [timetabone],
+    data: timetabone,
     fill: false,
     borderColor: 'rgb(75, 192, 192)',
     tension: 0.1
