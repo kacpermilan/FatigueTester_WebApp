@@ -264,38 +264,78 @@ results_text.textContent ="You are " + category;
 
 let rowNumbersone = [];
 let timetabone = [];
+let matchtabone = [];
 for ( i = 1; i < rowsone; i++) {
   rowNumbersone.push(i);
   timetabone.push(tableData[i].timeElapsed);
+  matchtabone.push(tableData[i].match);
 }
 
 let rowNumberstwo = [];
 let timetabtwo = [];
+let matchtabtwo = [];
 for ( i = 1; i < rowstwo; i++) {
   rowNumberstwo.push(i);
   timetabtwo.push(tableDataTwo[i].timeElapsed);
+  matchtabtwo.push(tableDataTwo[i].match);
 }
 
 
 
-const data = {
+
+const dataone = {
   labels: rowNumbersone,
   datasets: [{
     label: 'Test part one',
     data: timetabone,
     fill: false,
     borderColor: 'rgb(75, 192, 192)',
-    tension: 0.1
+    tension: 0.1,
+    pointBackgroundColor: function(context) {
+      var index = context.dataIndex;
+      if (matchtabone[index] === 1) {
+        return 'green';
+      } else {
+        return 'red';
+      }
+    }
   }]
-};
+}
 
-const config = {
+const configone = {
   type: 'line',
-  data: data,
+  data: dataone,
 };
 
 const ctx = document.getElementById('lineChart').getContext('2d');
-const lineChart = new Chart(ctx, config);
+const lineChart = new Chart(ctx, configone);
 
+
+const datatwo = {
+  labels: rowNumberstwo,
+  datasets: [{
+    label: 'Test part two',
+    data: timetabtwo,
+    fill: false,
+    borderColor: 'rgb(75, 192, 192)',
+    tension: 0.1,
+    pointBackgroundColor: function(context) {
+      var indextwo = context.dataIndex;
+      if (matchtabtwo[indextwo] === 1) {
+        return 'green';
+      } else {
+        return 'red';
+      }
+    }
+  }]
+};
+
+const configtwo = {
+  type: 'line',
+  data: datatwo,
+};
+
+const ctxtwo = document.getElementById('lineCharttwo').getContext('2d');
+const lineCharttwo = new Chart(ctxtwo, configtwo);
 }
 
