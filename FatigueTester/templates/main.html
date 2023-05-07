@@ -24,7 +24,10 @@
             <input type="button" class="test_button button5" value="" onclick="blackone(); startClock();">
         </div>
     </div>
-
+    <div id = "results" class = "results">
+        <div id = "results-text" class = "results-text"></div>
+        <canvas id="lineChart"></canvas>
+    </div>
     <div class="survey_access_temp_section text-center mt-5">
         <a class="btn btn-primary" href="{% url 'survey' %}">
             Tymczasowy placeholder dla ankiety (powinna wyskoczyć po testach {jeśli użytkownik zalogowany})

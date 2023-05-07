@@ -118,3 +118,23 @@
 
 .popup_text {
 }
+
+.results {
+   width: 75%;
+    height: 500px;
+    margin: 0 auto;
+    background-color: #F7FAF8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+    border-radius: 20px;
+    border: none;
+    position: relative;
+}
+
+.results-text {
+}
+

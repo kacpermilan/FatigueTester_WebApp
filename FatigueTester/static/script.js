@@ -132,7 +132,7 @@ function updateClock() {
     let clock = document.querySelector('#clock');
     clock.textContent = seconds.toString()
 
-    if (seconds > 5 && clockrestart < 2) {
+    if (seconds > 1 && clockrestart < 2) {
     popupcon = "This the end of first part of the test. In the seccond part you have to click button of the color that describes the word. Click the button bellow when you are ready to start."
     document.getElementById("popuptext").textContent = popupcon;
     document.getElementById("popup-overlay").style.display = "flex";
@@ -150,7 +150,7 @@ function updateClock() {
             seconds = 0;
         }
 
-    if (seconds > 5 && clockrestart >2){
+    if (seconds > 1 && clockrestart ===3 ){
         popupcon = "This the end of test. When you are ready click the button bellow to see the results."
         document.getElementById("popuptext").textContent = popupcon;
         document.getElementById("popup-overlay").style.display = "flex"; // Show the popup overlay
@@ -173,8 +173,9 @@ function startTest() {
   document.getElementById("popup-overlay").style.display = "none";
   clockrestart = clockrestart + 1;
 
-  if (clockrestart > 3) {
+  if (clockrestart === 4) {
       result();
+      document.getElementById("popup-overlay").style.display = "none";
   }
 }
 
@@ -211,47 +212,93 @@ var testnum = rowsone + rowstwo;
 var meantime = (counttimeone+counttimetwo) / testnum;
 var rightanw = countone+counttwo;
 var stos = rightanw/testnum;
-console.log(counttimeone,counttimetwo,testnum);
 console.log("poprawne odp:", rightanw, "/", testnum, " średni czas:", meantime);
 
 var category;
 
     if (stos <= 0.30){
-        category = "Wykończenie";
+        category = "exhausted";
     }
     if (stos <= 0.60 && stos > 0.30){
         if (meantime > 1100){
-            category = "Wykończenie";
+            category = "exhausted";
         } else{
-            category = "Zmęczenie";
+            category = "tired";
         }
     }
      if (stos <= 0.85 && stos > 0.60 || meantime > 600 && meantime < 800){
         if (meantime >= 1100){
-            category = "Wykończenie";
+            category = "exhausted";
         }
         if (meantime < 1100 && meantime >= 800){
-            category = "Zmęczenie";
+            category = "tired";
         }
         if (meantime < 800 && meantime >= 600) {
-            category = "Lekkie zmęczenie";
+            category = "slightly tired";
         }
     }
-     if (stos <= 1 && stos > 0.85 || meantime <=600){
+     if (stos <= 1 && stos > 0.85 ){
          if (meantime >= 1100){
-            category = "Wykończenie";
+            category = "exhausted";
         }
         if (meantime < 1100 && meantime >= 800){
-            category = "Zmęczenie";
+            category = "tired";
         }
         if (meantime < 800 && meantime >= 650) {
-            category = "Lekkie zmęczenie";
+            category = "slightly tired";
         }
         if (meantime < 650 ) {
-            category = "Dobra spraność";
+            category = "well rested";
         }
     }
+console.log(category);
+var testArea = document.querySelector('.test_area');
+  var h1Element = document.querySelector('.mt-5.mb-3');
 
-     console.log(category);
+// set their display property to none
+testArea.style.display = 'none';
+h1Element.style.display = 'none';
 
+results.textContent ="You are " + category;
+
+
+let rowNumbersone = [];
+let timetabone = [];
+for ( i = 1; i < rowsone; i++) {
+  rowNumbersone.push(i);
+  timetabone.push(tableData[i].timeElapsed);
 }
+
+let rowNumberstwo = [];
+let timetabtwo = [];
+for ( i = 1; i < rowstwo; i++) {
+  rowNumberstwo.push(i);
+  timetabtwo.push(tableDataTwo[i].timeElapsed);
+}
+
+//line
+var ctxL = document.getElementById("lineChart").getContext('2d');
+var myLineChart = new Chart(ctxL, {
+  type: 'line',
+  data: {
+    labels: rowNumbersone,
+    datasets: [{
+      label: "Test part one",
+      data: [timetabone],
+      backgroundColor: [
+        'rgba(105, 0, 132, .2)',
+      ],
+      borderColor: [
+        'rgba(200, 99, 132, .7)',
+      ],
+      borderWidth: 2
+    },
+
+    ]
+  },
+  options: {
+    responsive: true
+  }
+});
+}
+
