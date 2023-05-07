@@ -259,7 +259,7 @@ var testArea = document.querySelector('.test_area');
 testArea.style.display = 'none';
 h1Element.style.display = 'none';
 
-results.textContent ="You are " + category;
+results_text.textContent ="You are " + category;
 
 
 let rowNumbersone = [];
