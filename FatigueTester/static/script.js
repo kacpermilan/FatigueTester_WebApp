@@ -248,7 +248,7 @@ var category;
             category = "Lekkie zmęczenie";
         }
         if (meantime < 650 ) {
-            category = "Pełna spraność";
+            category = "Dobra spraność";
         }
     }
 
