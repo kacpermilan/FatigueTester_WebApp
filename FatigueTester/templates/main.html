@@ -2,7 +2,12 @@
 {% load i18n %}
 
 {% block content %}
-
+    <div id="popup-overlay">
+        <div id="popup">
+            <div id= "popuptext" class="popup_text"></div>
+        <button id="start-button" onclick="startTest()">Ready</button>
+        </div>
+    </div>
     <figure class="text-center">
         <h1 class="mt-5 mb-3"> {% trans 'To start the test click any of the buttons bellow!' %} </h1>
     </figure>

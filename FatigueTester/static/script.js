@@ -13,7 +13,7 @@ let buttonNumber = 10;
 let randomNumber = 10;
 let randomNumbertext = 10;
 let clockrestart =0;
-
+var popupcon = "This test consists of two parts. In the first part you have to click on the button which color corresponds with the color of the text. Click the button bellow when you are ready to start.";
 
 // Function to log table data to console
 function logTableData() {
@@ -126,16 +126,22 @@ function updateClock() {
     let seconds = Math.floor(elapsedTime / 1000);
     let clock = document.querySelector('#clock');
     clock.textContent = seconds.toString()
-    if (seconds > 5) {
+
+    if (seconds > 5 && clockrestart <= 1) {
     clearInterval(clockInterval); // Stop the clock
-    alert('Time is up!'); // Show a popup
+    popupcon = "This the end of first part of the test. In the seccond part you have to click button of the color that describes the word. Click the button bellow when you are ready to start."
+    document.getElementById("popuptext").textContent = popupcon;
+    document.getElementById("popup-overlay").style.display = "flex"; // Show the popup overlay
     // Reset clock variables
     clockTime = new Date().getTime();
     clockInterval = null;
     clock.textContent = "0";
-    clockrestart = clockrestart + 1;
+     clockrestart = clockrestart + 1;
     }
-    if (clockrestart >1){
+    if (clockrestart > 1){
+        popupcon = "This the end of test. When you are ready click the button bellow to see the results."
+        document.getElementById("popuptext").textContent = popupcon;
+        document.getElementById("popup-overlay").style.display = "flex"; // Show the popup overlay
         clockTime = null;
         clockInterval = null;
         clock.textContent = "0";
@@ -143,3 +149,16 @@ function updateClock() {
     }
 }
 
+
+// Show the popup overlay on page load
+window.onload = function() {
+  let popuptext = document.getElementById("popuptext");
+  popuptext.textContent = popupcon;
+  document.getElementById("popup-overlay").style.display = "flex";
+
+}
+
+// Hide the popup overlay and start the test when the button is clicked
+function startTest() {
+  document.getElementById("popup-overlay").style.display = "none";
+}
