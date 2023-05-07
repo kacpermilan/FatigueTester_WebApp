@@ -1,7 +1,7 @@
-import django.utils.timezone
-
+import django.http
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 from django.contrib import messages
 from django.utils.translation import activate
 from django.utils.translation import gettext as _
@@ -95,10 +95,37 @@ def display_userdata(request):
         messages.success(request, _("This section is available only for logged in users"))
         return redirect('login')
 
-    # tests_obj =
+    # tests_data = TestResult.objects.filter(user_id=request.user)
+    tests_data = None
     surveys_data = SurveyResult.objects.filter(user_id=request.user)
     patient_data = PatientModel.objects.filter(user_id=request.user)
-    return render(request, 'user_data.html', {'surveys_data': surveys_data, 'patient_data': patient_data})
+    return render(request, 'user_data.html', {'tests_data': tests_data, 'surveys_data': surveys_data,
+                                              'patient_data': patient_data})
+
+
+def display_patientdata(request, username):
+    if not request.user.is_authenticated:
+        messages.success(request, _("This section is available only for logged in users"))
+        return redirect('login')
+
+    try:
+        user = User.objects.get(username=username)
+        user_id = user.id
+
+    except User.DoesNotExist:
+        raise django.http.Http404(_("User not found."))
+
+    patients = PatientModel.objects.filter(user_id=request.user)
+    for patient in patients:
+        if patient.patient.id == user_id:
+            # tests_data = TestResult.objects.filter(user_id=pk)
+            tests_data = None
+            surveys_data = SurveyResult.objects.filter(user_id=user_id)
+            return render(request, 'user_data.html', {'tests_data': tests_data, 'surveys_data': surveys_data,
+                                                      'patient_username': username})
+
+    messages.success(request, _("You don't have access to this Patient"))
+    return redirect('database')
 
 
 def survey_record(request, pk):

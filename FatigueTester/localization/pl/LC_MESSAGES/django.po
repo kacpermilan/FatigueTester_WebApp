@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-06 20:35+0200\n"
+"POT-Creation-Date: 2023-05-07 11:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,15 +20,18 @@ msgstr ""
 "%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
 "%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-#: .\FatigueTester\forms.py:36
+#: .\FatigueTester\forms.py:36 .\FatigueTester\templates\user_data.html:90
+#: .\FatigueTester\templates\user_profile.html:22
 msgid "E-mail Address"
 msgstr "Adres E-mail"
 
-#: .\FatigueTester\forms.py:41 .\FatigueTester\templates\user_profile.html:14
+#: .\FatigueTester\forms.py:41 .\FatigueTester\templates\user_data.html:88
+#: .\FatigueTester\templates\user_profile.html:14
 msgid "First Name"
 msgstr "Imię"
 
-#: .\FatigueTester\forms.py:46 .\FatigueTester\templates\user_profile.html:18
+#: .\FatigueTester\forms.py:46 .\FatigueTester\templates\user_data.html:89
+#: .\FatigueTester\templates\user_profile.html:18
 msgid "Last Name"
 msgstr "Nazwisko"
 
@@ -152,30 +155,60 @@ msgstr "Twój formularz ma błędy"
 msgid "Close"
 msgstr "Zamknij"
 
-#: .\FatigueTester\templates\user_data.html:10
+#: .\FatigueTester\templates\user_data.html:11
+msgid "Return"
+msgstr "Powrót"
+
+#: .\FatigueTester\templates\user_data.html:14
+#: .\FatigueTester\templates\user_data.html:20
+#: .\FatigueTester\templates\user_data.html:91
+msgid "Userdata"
+msgstr "Dane Użytkownika"
+
+#: .\FatigueTester\templates\user_data.html:26
 msgid "Tests"
 msgstr "Testy"
 
-#: .\FatigueTester\templates\user_data.html:15
+#: .\FatigueTester\templates\user_data.html:31
 msgid "Surveys"
 msgstr "Ankiety"
 
-#: .\FatigueTester\templates\user_data.html:21
-#: .\FatigueTester\templates\user_data.html:27
+#: .\FatigueTester\templates\user_data.html:37
+#: .\FatigueTester\templates\user_data.html:43
 msgid "Patients"
 msgstr "Pacjenci"
 
-#: .\FatigueTester\templates\user_data.html:43
+#: .\FatigueTester\templates\user_data.html:54
+msgid "There aren't any tests to display"
+msgstr "Brak testów do wyświetlenia"
+
+#: .\FatigueTester\templates\user_data.html:62
 msgid "Survey Date"
 msgstr "Data Ankiety"
 
-#: .\FatigueTester\templates\user_data.html:44
+#: .\FatigueTester\templates\user_data.html:63
 msgid "Test Efficiency Rating"
 msgstr "Ocena Skuteczności Testu"
 
-#: .\FatigueTester\templates\user_data.html:45
+#: .\FatigueTester\templates\user_data.html:64
 msgid "Comment"
 msgstr "Komentarz"
+
+#: .\FatigueTester\templates\user_data.html:78
+msgid "There aren't any surveys to display"
+msgstr "Brak ankiet do wyświetlenia"
+
+#: .\FatigueTester\templates\user_data.html:87
+msgid "Patient"
+msgstr "Pacjent"
+
+#: .\FatigueTester\templates\user_data.html:101
+msgid "Data"
+msgstr "Dane"
+
+#: .\FatigueTester\templates\user_data.html:107
+msgid "There aren't any patients to display"
+msgstr "Brak pacjentów do wyświetlenia"
 
 #: .\FatigueTester\templates\user_login.html:11
 msgid "E-mail"
@@ -206,7 +239,8 @@ msgid "There was an error logging in, please try again"
 msgstr "Wystąpił problem przy próbie zalogowania, proszę spróbuj ponownie"
 
 #: .\FatigueTester\views.py:34 .\FatigueTester\views.py:87
-#: .\FatigueTester\views.py:95 .\FatigueTester\views.py:106
+#: .\FatigueTester\views.py:95 .\FatigueTester\views.py:108
+#: .\FatigueTester\views.py:133
 msgid "This section is available only for logged in users"
 msgstr "Ta sekcja jest dostępna tylko dla zalogowanych użytkowników"
 
@@ -226,8 +260,13 @@ msgstr "Wylogowano pomyślnie"
 msgid "You have been successfully registered"
 msgstr "Zarejestrowano pomyślnie"
 
-msgid "Patient"
-msgstr "Pacjent"
+#: .\FatigueTester\views.py:116
+msgid "User not found."
+msgstr "Nie odnaleziono użytkownika"
+
+#: .\FatigueTester\views.py:127
+msgid "You don't have access to this Patient"
+msgstr "Nie masz dostępu do tego Pacjenta"
 
 msgid "Supervisor"
 msgstr "Lekarz/Nadzorujący"
