@@ -8,19 +8,24 @@ const colors = ["red", "blue", "green", "yellow", "black"];
 let tableData = [];
 let tableDataTwo = [];
 
-
+let rowsone = -1;
+let rowstwo = -1;
 let buttonNumber = 10;
 let randomNumber = 10;
 let randomNumbertext = 10;
 let clockrestart =0;
-var popupcon = "This test consists of two parts. In the first part you have to click on the button which color corresponds with the color of the text. Click the button bellow when you are ready to start.";
+let popupcon = "This test consists of two parts. In the first part you have to click on the button which color corresponds with the color of the text. Click the button bellow when you are ready to start.";
 
 // Function to log table data to console
 function logTableData() {
     console.log(tableData);
+    rowsone=rowsone + 1
+    console.log("rowsone =", rowsone);
 }
 function logTableDataTwo() {
     console.log(tableDataTwo);
+    rowstwo=rowstwo + 1
+    console.log("rowstwo =", rowstwo);
 }
 // Functions for the buttons
 function redone() {
@@ -127,7 +132,7 @@ function updateClock() {
     let clock = document.querySelector('#clock');
     clock.textContent = seconds.toString()
 
-    if (seconds > 30 && clockrestart < 2) {
+    if (seconds > 5 && clockrestart < 2) {
     popupcon = "This the end of first part of the test. In the seccond part you have to click button of the color that describes the word. Click the button bellow when you are ready to start."
     document.getElementById("popuptext").textContent = popupcon;
     document.getElementById("popup-overlay").style.display = "flex";
@@ -145,7 +150,7 @@ function updateClock() {
             seconds = 0;
         }
 
-    if (seconds > 30 && clockrestart >2){
+    if (seconds > 5 && clockrestart >2){
         popupcon = "This the end of test. When you are ready click the button bellow to see the results."
         document.getElementById("popuptext").textContent = popupcon;
         document.getElementById("popup-overlay").style.display = "flex"; // Show the popup overlay
@@ -167,4 +172,86 @@ window.onload = function() {
 function startTest() {
   document.getElementById("popup-overlay").style.display = "none";
   clockrestart = clockrestart + 1;
+
+  if (clockrestart > 3) {
+      result();
+  }
+}
+
+function result() {
+    var countone = 0;
+    var counttwo = 0;
+    var time;
+    var counttimeone = 0;
+    var counttimetwo = 0;
+    var row;
+    var i;
+
+
+    for ( i = 1; i <= rowsone; i++) { // We ignore the first row in the table
+    row = tableData[i].match;
+    time = tableData[i].timeElapsed;
+    counttimeone = counttimeone + time;
+        if (row === 1) {
+            countone = countone + 1;
+        }
+    }
+
+    for ( i = 1; i <= rowstwo; i++) { // We ignore the first row in the table
+    row = tableDataTwo[i].match;
+    time = tableDataTwo[i].timeElapsed;
+    counttimetwo = counttimetwo + time;
+    if (row === 1) {
+            counttwo = counttwo + 1;
+        }
+
+    }
+
+var testnum = rowsone + rowstwo;
+var meantime = (counttimeone+counttimetwo) / testnum;
+var rightanw = countone+counttwo;
+var stos = rightanw/testnum;
+console.log(counttimeone,counttimetwo,testnum);
+console.log("poprawne odp:", rightanw, "/", testnum, " średni czas:", meantime);
+
+var category;
+
+    if (stos <= 0.30){
+        category = "Wykończenie";
+    }
+    if (stos <= 0.60 && stos > 0.30){
+        if (meantime > 1100){
+            category = "Wykończenie";
+        } else{
+            category = "Zmęczenie";
+        }
+    }
+     if (stos <= 0.85 && stos > 0.60 || meantime > 600 && meantime < 800){
+        if (meantime >= 1100){
+            category = "Wykończenie";
+        }
+        if (meantime < 1100 && meantime >= 800){
+            category = "Zmęczenie";
+        }
+        if (meantime < 800 && meantime >= 600) {
+            category = "Lekkie zmęczenie";
+        }
+    }
+     if (stos <= 1 && stos > 0.85 || meantime <=600){
+         if (meantime >= 1100){
+            category = "Wykończenie";
+        }
+        if (meantime < 1100 && meantime >= 800){
+            category = "Zmęczenie";
+        }
+        if (meantime < 800 && meantime >= 650) {
+            category = "Lekkie zmęczenie";
+        }
+        if (meantime < 650 ) {
+            category = "Pełna spraność";
+        }
+    }
+
+     console.log(category);
+
 }
