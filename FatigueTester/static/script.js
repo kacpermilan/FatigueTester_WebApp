@@ -65,8 +65,9 @@ function testone() {
      // Check if the clicked button number matches the random number
     let match = buttonNumber === randomNumber ? 1 : 0;
      // Push the data to the table
-    tableData.push({ match: match, timeElapsed: elapsedTime });
+    tableData.push({ match: match, timeElapsed: elapsedTime, currenttime: currentTime });
     logTableData();
+    startTime = new Date().getTime();
 
 }
  function changeColor() {
@@ -100,5 +101,8 @@ function updateClock() {
     let seconds = Math.floor(elapsedTime / 1000);
     let clock = document.querySelector('#clock');
     clock.textContent = seconds.toString()
+    if (elapsedTime == 30){
+
+    }
 }
 
