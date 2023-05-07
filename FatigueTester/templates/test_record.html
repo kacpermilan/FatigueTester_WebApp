@@ -2,10 +2,39 @@
 {% load i18n %}
 
 {% block content %}
+    <div class="mt-5 mb-3">
+        <div class="col-1">
+            <a class="btn btn-secondary" href="{% url 'database' %}"> {% trans "Return" %} </a>
+        </div>
+    </div>
 
-{{ survey_record.user }}
-{{ survey_record.date }}
-{{ survey_record.rating }}
-{{ survey_record.comment }}
+    {% if test_answers %}
+        <table class="table table-striped table-hover table-bordered mt-5">
+            <thead class="table-primary">
+                <tr>
+                    <th scope="col"> {% trans "Answer Number" %} </th>
+                    <th scope="col"> {% trans "Correct" %} </th>
+                    <th scope="col"> {% trans "Response Time" %} </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in test_answers %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>
+                            {% if record.correctness %}
+                                {% trans "Yes" %}
+                            {% else %}
+                                {% trans "No" %}
+                            {% endif %}
+                        </td>
+                        <td>{{ record.response_time }} ms</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <h3 class="mt-5 mb-3 text-center fst-italic">{% trans "Somehow, this test has no answers." %}</h3>
+    {% endif %}
 
 {% endblock %}

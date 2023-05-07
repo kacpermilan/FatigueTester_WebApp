@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.utils.translation import activate
 from django.utils.translation import gettext as _
 from django.utils.timezone import now
-from .models import SurveyResult, PatientModel
+from .models import TestResult, TestAnswer, SurveyResult, PatientModel
 from .forms import RegisterForm, SurveyForm, RequestForm
 
 
@@ -95,8 +95,7 @@ def display_userdata(request):
         messages.success(request, _("This section is available only for logged in users"))
         return redirect('login')
 
-    # tests_data = TestResult.objects.filter(user_id=request.user)
-    tests_data = None
+    tests_data = TestResult.objects.filter(user_id=request.user)
     surveys_data = SurveyResult.objects.filter(user_id=request.user)
     patient_data = PatientModel.objects.filter(user_id=request.user, status='ACCEPTED')
 
@@ -140,14 +139,23 @@ def display_patientdata(request, username):
     patients = PatientModel.objects.filter(user_id=request.user, status='ACCEPTED')
     for patient in patients:
         if patient.patient.id == user_id:
-            # tests_data = TestResult.objects.filter(user_id=pk)
-            tests_data = None
+            tests_data = TestResult.objects.filter(user_id=user_id)
             surveys_data = SurveyResult.objects.filter(user_id=user_id)
             return render(request, 'user_data.html', {'tests_data': tests_data, 'surveys_data': surveys_data,
                                                       'patient_username': username})
 
     messages.success(request, _("You don't have access to this Patient"))
     return redirect('database')
+
+
+def display_test_result(request, test_id):
+    if not request.user.is_authenticated:
+        messages.success(request, _("This section is available only for logged in users"))
+        return redirect('login')
+
+    test_answer_data = TestAnswer.objects.filter(test_result_id=test_id)
+
+    return render(request, 'test_record.html', {'test_answers': test_answer_data})
 
 
 def supervisors_and_invitations(request):
