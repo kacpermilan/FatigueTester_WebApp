@@ -1,5 +1,6 @@
 {% extends 'app_base.html' %}
 {% load i18n %}
+{% load group_filters %}
 
 {% block content %}
 
@@ -35,6 +36,11 @@
             <a href="{% url 'change_password' %}" class="btn btn-primary mt-3">
                 {% trans 'Change Password' %}
             </a>
+            {% if user.groups.all|group_check:"Patient" %}
+                <a href="{% url 'supervisors_and_invitations' %}" class="btn btn-secondary mt-3 ms-3">
+                    {% trans "Supervisors and Invitations" %}
+                </a>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

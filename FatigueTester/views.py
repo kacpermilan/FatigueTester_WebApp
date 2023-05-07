@@ -1,5 +1,5 @@
 import django.http
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -7,7 +7,7 @@ from django.utils.translation import activate
 from django.utils.translation import gettext as _
 from django.utils.timezone import now
 from .models import SurveyResult, PatientModel
-from .forms import RegisterForm, SurveyForm
+from .forms import RegisterForm, SurveyForm, RequestForm
 
 
 def main_menu(request):
@@ -98,9 +98,31 @@ def display_userdata(request):
     # tests_data = TestResult.objects.filter(user_id=request.user)
     tests_data = None
     surveys_data = SurveyResult.objects.filter(user_id=request.user)
-    patient_data = PatientModel.objects.filter(user_id=request.user)
+    patient_data = PatientModel.objects.filter(user_id=request.user, status='ACCEPTED')
+
+    request_form = RequestForm(request.POST or None)
+    if request.method == "POST":
+        if request_form.is_valid():
+            invitation = request_form.save(commit=False)
+            invitation.user = request.user
+
+            if invitation.patient.groups.filter(name="Supervisor").exists():
+                messages.success(request, _("Supervisor cannot become patient"))
+                return redirect('database')
+
+            if PatientModel.objects.filter(user=invitation.user, patient=invitation.patient).exists():
+                messages.success(request, _("User is already your patient or a request is pending"))
+                return redirect('database')
+
+            invitation.status = 'PENDING'
+            invitation.created_at = now()
+            invitation.save()
+
+            messages.success(request, _("Invitation Send"))
+            return redirect('database')
+
     return render(request, 'user_data.html', {'tests_data': tests_data, 'surveys_data': surveys_data,
-                                              'patient_data': patient_data})
+                                              'patient_data': patient_data, 'request_form': request_form})
 
 
 def display_patientdata(request, username):
@@ -115,7 +137,7 @@ def display_patientdata(request, username):
     except User.DoesNotExist:
         raise django.http.Http404(_("User not found."))
 
-    patients = PatientModel.objects.filter(user_id=request.user)
+    patients = PatientModel.objects.filter(user_id=request.user, status='ACCEPTED')
     for patient in patients:
         if patient.patient.id == user_id:
             # tests_data = TestResult.objects.filter(user_id=pk)
@@ -128,13 +150,41 @@ def display_patientdata(request, username):
     return redirect('database')
 
 
-def survey_record(request, pk):
-    if not request.user.is_authenticated:
-        messages.success(request, _("This section is available only for logged in users"))
-        return redirect('login')
+def supervisors_and_invitations(request):
+    pending_invitations = PatientModel.objects.filter(patient=request.user,
+                                                      status='PENDING')
+    supervisors = PatientModel.objects.filter(patient=request.user,
+                                              status='ACCEPTED')
+    return render(request, 'user_supervisors_and_invitations.html', {'pending_invitations': pending_invitations,
+                                                                     'supervisors': supervisors})
 
-    matching_record = SurveyResult.objects.get(id=pk)
-    return render(request, 'test_record.html', {'survey_record': matching_record})
+
+def accept_invitation(request, invite_id):
+    invite = get_object_or_404(PatientModel, id=invite_id, patient=request.user, status='PENDING')
+
+    invite.status = 'ACCEPTED'
+    invite.save()
+    messages.success(request, _("Invitation accepted."))
+
+    return redirect('supervisors_and_invitations')
+
+
+def decline_invitation(request, invite_id):
+    invite = get_object_or_404(PatientModel, id=invite_id, patient=request.user, status='PENDING')
+
+    invite.delete()
+    messages.success(request, _("Invitation declined."))
+
+    return redirect('supervisors_and_invitations')
+
+
+def remove_supervisor(request, invite_id):
+    invite = get_object_or_404(PatientModel, id=invite_id, patient=request.user, status='ACCEPTED')
+
+    invite.delete()
+    messages.success(request, _("Supervisor Removed."))
+
+    return redirect('supervisors_and_invitations')
 
 
 def switch_language(request, language):
