@@ -13,6 +13,7 @@
             <thead class="table-primary">
                 <tr>
                     <th scope="col"> {% trans "Answer Number" %} </th>
+                    <th scope="col"> {% trans "Test Part" %} </th>
                     <th scope="col"> {% trans "Correct" %} </th>
                     <th scope="col"> {% trans "Response Time" %} </th>
                 </tr>
@@ -21,6 +22,7 @@
                 {% for record in test_answers %}
                     <tr>
                         <td>{{ forloop.counter }}</td>
+                        <td>{{ record.type }}</td>
                         <td>
                             {% if record.correctness %}
                                 {% trans "Yes" %}

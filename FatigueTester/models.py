@@ -10,12 +10,14 @@ class TestResult(models.Model):
     test_date = models.DateTimeField(auto_now_add=True)
     test_score = models.FloatField(default=0)
     average_response_time = models.PositiveBigIntegerField()
+    assessment = models.TextField()
 
 
 class TestAnswer(models.Model):
     test_result = models.ForeignKey(TestResult, on_delete=models.CASCADE)
     correctness = models.BooleanField()
     response_time = models.PositiveBigIntegerField()
+    type = models.PositiveSmallIntegerField()
 
 
 class SurveyResult(models.Model):
