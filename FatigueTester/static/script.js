@@ -132,7 +132,7 @@ function updateClock() {
     let clock = document.querySelector('#clock');
     clock.textContent = seconds.toString()
 
-    if (seconds > 1 && clockrestart < 2) {
+    if (seconds > 30 && clockrestart < 2) {
     popupcon = "This the end of first part of the test. In the seccond part you have to click button of the color that describes the word. Click the button bellow when you are ready to start."
     document.getElementById("popuptext").textContent = popupcon;
     document.getElementById("popup-overlay").style.display = "flex";
@@ -150,7 +150,7 @@ function updateClock() {
             seconds = 0;
         }
 
-    if (seconds > 1 && clockrestart ===3 ){
+    if (seconds > 30 && clockrestart ===3 ){
         popupcon = "This the end of test. When you are ready click the button bellow to see the results."
         document.getElementById("popuptext").textContent = popupcon;
         document.getElementById("popup-overlay").style.display = "flex"; // Show the popup overlay
@@ -291,6 +291,7 @@ const dataone = {
     fill: false,
     borderColor: 'rgb(75, 192, 192)',
     tension: 0.1,
+    pointRadius: 5,
     pointBackgroundColor: function(context) {
       var index = context.dataIndex;
       if (matchtabone[index] === 1) {
@@ -319,6 +320,7 @@ const datatwo = {
     fill: false,
     borderColor: 'rgb(75, 192, 192)',
     tension: 0.1,
+    pointRadius: 5,
     pointBackgroundColor: function(context) {
       var indextwo = context.dataIndex;
       if (matchtabtwo[indextwo] === 1) {
