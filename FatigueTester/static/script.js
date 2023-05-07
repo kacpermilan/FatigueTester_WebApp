@@ -129,13 +129,14 @@ function startClock() {
 
 // Function to update the clock
 function updateClock() {
+    const tests_duration = 30
     let currentTime = new Date().getTime();
     let elapsedTime = currentTime - clockTime;
     let seconds = Math.floor(elapsedTime / 1000);
     let clock = document.querySelector('#clock');
     clock.textContent = seconds.toString()
 
-    if (seconds > 30 && clockrestart < 2) {
+    if (seconds > tests_duration && clockrestart < 2) {
         popupcon = "This the end of first part of the test. In the seccond part you have to click button of the color that describes the word. Click the button bellow when you are ready to start."
         document.getElementById("popuptext").textContent = popupcon;
         document.getElementById("popup-overlay").style.display = "flex";
@@ -153,7 +154,7 @@ function updateClock() {
         seconds = 0;
     }
 
-    if (seconds > 30 && clockrestart === 3) {
+    if (seconds > tests_duration && clockrestart === 3) {
         popupcon = "This the end of test. When you are ready click the button bellow to see the results."
         document.getElementById("popuptext").textContent = popupcon;
         document.getElementById("popup-overlay").style.display = "flex"; // Show the popup overlay
@@ -338,32 +339,44 @@ function result() {
 
     const ctxtwo = document.getElementById('lineCharttwo').getContext('2d');
     const lineCharttwo = new Chart(ctxtwo, configtwo);
+
+    sendTestData(stos, meantime, category, tableData, tableDataTwo)
 }
 
-function sendTestData() {
+function sendTestData(test_score, average_response_time, assessment, type_one_data, type_two_data)
+{
     const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
 
-    fetch('/store_test_data/', {
+    fetch('/store_test_data/',
+{
         method: 'POST',
-        headers: {
+        headers:
+        {
             'Content-Type': 'application/x-www-form-urlencoded',
             'X-CSRFToken': csrftoken,
         },
-        body: new URLSearchParams({
-            'test_num': testnum,
-            'mean_time': meantime,
-            'right_answ': rightanw,
+        body: new URLSearchParams(
+    {
+            'test_score': test_score,
+            'average_response_time': average_response_time,
+            'assessment': assessment,
+            'type_one_data': JSON.stringify(type_one_data),
+            'type_two_data': JSON.stringify(type_two_data),
         }),
     })
     .then(response => response.json())
-    .then(data => {
-        if (data.status === "success") {
+    .then(data =>
+    {
+        if (data.status === "success")
+        {
             console.log("Data saved successfully");
-        } else {
+        } else
+        {
             console.log("Error saving data");
         }
     })
-    .catch(error => {
+    .catch(error =>
+    {
         console.error('Error:', error);
     });
 }

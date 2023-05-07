@@ -14,7 +14,7 @@ class TestResult(models.Model):
 
 
 class TestAnswer(models.Model):
-    test_result = models.ForeignKey(TestResult, on_delete=models.CASCADE)
+    associated_test = models.ForeignKey(TestResult, on_delete=models.CASCADE)
     correctness = models.BooleanField()
     response_time = models.PositiveBigIntegerField()
     type = models.PositiveSmallIntegerField()

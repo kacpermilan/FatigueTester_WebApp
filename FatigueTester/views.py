@@ -1,4 +1,5 @@
-import django.http
+import json
+from django.http import JsonResponse, Http404
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
@@ -6,6 +7,7 @@ from django.contrib import messages
 from django.utils.translation import activate
 from django.utils.translation import gettext as _
 from django.utils.timezone import now
+from django.views.decorators.csrf import csrf_exempt
 from .models import TestResult, TestAnswer, SurveyResult, PatientModel
 from .forms import RegisterForm, SurveyForm, RequestForm
 
@@ -27,6 +29,44 @@ def main_menu(request):
             return redirect('login')
 
     return render(request, 'main.html')
+
+
+@csrf_exempt
+def store_test_data(request):
+    if request.method == "POST":
+        test_score = float(request.POST['test_score'])
+        average_response_time = float(request.POST['average_response_time'])
+        assessment = (request.POST['assessment'])
+        type_one_data = json.loads(request.POST['type_one_data'])
+        type_two_data = json.loads(request.POST['type_two_data'])
+
+        test_result = TestResult(user=request.user, test_date=now(), test_score=test_score,
+                                 average_response_time=average_response_time, assessment=assessment)
+        test_result.save()
+
+        for data in type_one_data:
+            corectness = False
+            if data['match'] == 1:
+                corectness = True
+            answer = TestAnswer(associated_test=test_result,
+                                correctness=corectness,
+                                response_time=data['timeElapsed'],
+                                type=1)
+            answer.save()
+
+        for data in type_two_data:
+            corectness = False
+            if data['match'] == 1:
+                corectness = True
+            answer = TestAnswer(associated_test=test_result,
+                                correctness=corectness,
+                                response_time=data['timeElapsed'],
+                                type=2)
+            answer.save()
+
+        return JsonResponse({"status": "success"})
+    else:
+        return JsonResponse({"status": "error"})
 
 
 def new_survey(request):
@@ -134,7 +174,7 @@ def display_patientdata(request, username):
         user_id = user.id
 
     except User.DoesNotExist:
-        raise django.http.Http404(_("User not found."))
+        raise Http404(_("User not found."))
 
     patients = PatientModel.objects.filter(user_id=request.user, status='ACCEPTED')
     for patient in patients:
@@ -153,7 +193,7 @@ def display_test_result(request, test_id):
         messages.success(request, _("This section is available only for logged in users"))
         return redirect('login')
 
-    test_answer_data = TestAnswer.objects.filter(test_result_id=test_id)
+    test_answer_data = TestAnswer.objects.filter(associated_test_id=test_id)
 
     return render(request, 'test_record.html', {'test_answers': test_answer_data})
 

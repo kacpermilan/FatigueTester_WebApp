@@ -2,6 +2,7 @@
 {% load i18n %}
 
 {% block content %}
+    {% csrf_token %}
     <div id="popup-overlay">
         <div id="popup">
             <div id= "popuptext" class="popup_text"></div>
