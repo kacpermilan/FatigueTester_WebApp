@@ -58,7 +58,7 @@ function blackone() {
      changeColor();
 }
 function testparts() {
-      if (clockrestart == 0){
+      if (clockrestart === 0){
          testone();
      }
       if (clockrestart === 1){
@@ -127,24 +127,32 @@ function updateClock() {
     let clock = document.querySelector('#clock');
     clock.textContent = seconds.toString()
 
-    if (seconds > 5 && clockrestart <= 1) {
-    clearInterval(clockInterval); // Stop the clock
+    if (seconds > 5 && clockrestart < 2) {
     popupcon = "This the end of first part of the test. In the seccond part you have to click button of the color that describes the word. Click the button bellow when you are ready to start."
     document.getElementById("popuptext").textContent = popupcon;
-    document.getElementById("popup-overlay").style.display = "flex"; // Show the popup overlay
-    // Reset clock variables
-    clockTime = new Date().getTime();
-    clockInterval = null;
-    clock.textContent = "0";
-     clockrestart = clockrestart + 1;
+    document.getElementById("popup-overlay").style.display = "flex";
+        if (clockrestart === 1) { // Show the popup overlay
+            clockTime = null;
+            clockInterval = null;
+            clock.textContent = "0";
+        }
     }
-    if (clockrestart > 1){
+
+    if (clockrestart === 2) {
+            clockTime = new Date().getTime();
+            clockInterval = null;
+            clockrestart = clockrestart +1;
+            seconds = 0;
+        }
+
+    if (seconds > 5 && clockrestart > 2){
         popupcon = "This the end of test. When you are ready click the button bellow to see the results."
         document.getElementById("popuptext").textContent = popupcon;
         document.getElementById("popup-overlay").style.display = "flex"; // Show the popup overlay
         clockTime = null;
         clockInterval = null;
         clock.textContent = "0";
+
 
     }
 }
@@ -155,10 +163,10 @@ window.onload = function() {
   let popuptext = document.getElementById("popuptext");
   popuptext.textContent = popupcon;
   document.getElementById("popup-overlay").style.display = "flex";
-
 }
 
 // Hide the popup overlay and start the test when the button is clicked
 function startTest() {
   document.getElementById("popup-overlay").style.display = "none";
+  clockrestart = clockrestart + 1;
 }
