@@ -41,7 +41,7 @@ function greenone() {
      buttonNumber = 3;
      testparts();
      randomnumbers();
-     changeColor();;
+     changeColor();
 }
 
 function yellowone() {
@@ -145,7 +145,7 @@ function updateClock() {
             seconds = 0;
         }
 
-    if (seconds > 30 && clockrestart > 2){
+    if (seconds > 30 && clockrestart === 3){
         popupcon = "This the end of test. When you are ready click the button bellow to see the results."
         document.getElementById("popuptext").textContent = popupcon;
         document.getElementById("popup-overlay").style.display = "flex"; // Show the popup overlay
