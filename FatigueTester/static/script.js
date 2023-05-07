@@ -276,29 +276,26 @@ for ( i = 1; i < rowstwo; i++) {
   timetabtwo.push(tableDataTwo[i].timeElapsed);
 }
 
-//line
-var ctxL = document.getElementById("lineChart").getContext('2d');
-var myLineChart = new Chart(ctxL, {
-  type: 'line',
-  data: {
-    labels: rowNumbersone,
-    datasets: [{
-      label: "Test part one",
-      data: [timetabone],
-      backgroundColor: [
-        'rgba(105, 0, 132, .2)',
-      ],
-      borderColor: [
-        'rgba(200, 99, 132, .7)',
-      ],
-      borderWidth: 2
-    },
 
-    ]
-  },
-  options: {
-    responsive: true
-  }
-});
+
+const data = {
+  labels: rowNumbersone,
+  datasets: [{
+    label: 'Test part one',
+    data: [timetabone],
+    fill: false,
+    borderColor: 'rgb(75, 192, 192)',
+    tension: 0.1
+  }]
+};
+
+const config = {
+  type: 'line',
+  data: data,
+};
+
+const ctx = document.getElementById('lineChart').getContext('2d');
+const lineChart = new Chart(ctx, config);
+
 }
 
