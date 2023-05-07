@@ -145,15 +145,13 @@ function updateClock() {
             seconds = 0;
         }
 
-    if (seconds > 30 && clockrestart === 3){
+    if (seconds > 30 && clockrestart >2){
         popupcon = "This the end of test. When you are ready click the button bellow to see the results."
         document.getElementById("popuptext").textContent = popupcon;
         document.getElementById("popup-overlay").style.display = "flex"; // Show the popup overlay
         clockTime = null;
         clockInterval = null;
         clock.textContent = "0";
-
-
     }
 }
 
