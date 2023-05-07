@@ -6,51 +6,65 @@ const colors = ["red", "blue", "green", "yellow", "black"];
 
 // Define an empty array to store table data
 let tableData = [];
+let tableDataTwo = [];
+
 
 let buttonNumber = 10;
 let randomNumber = 10;
 let randomNumbertext = 10;
+let clockrestart =0;
+
 
 // Function to log table data to console
 function logTableData() {
     console.log(tableData);
 }
+function logTableDataTwo() {
+    console.log(tableDataTwo);
+}
 // Functions for the buttons
 function redone() {
      buttonNumber = 1;
-     testone();
+     testparts();
      randomnumbers();
      changeColor();
 }
 
 function blueone() {
      buttonNumber = 2;
-     testone();
+     testparts();
      randomnumbers();
      changeColor();
 }
 
 function greenone() {
      buttonNumber = 3;
-     testone();
+     testparts();
      randomnumbers();
      changeColor();;
 }
 
 function yellowone() {
      buttonNumber = 4;
-     testone();
+     testparts();
      randomnumbers();
      changeColor();
 }
 
 function blackone() {
      buttonNumber = 5;
-     testone();
+     testparts();
      randomnumbers();
      changeColor();
 }
-
+function testparts() {
+      if (clockrestart == 0){
+         testone();
+     }
+      if (clockrestart === 1){
+         testtwo();
+     }
+}
 function randomnumbers() {
      // Get a random numbers for color and content of text
      randomNumber = Math.floor(Math.random() * 5) + 1;
@@ -64,11 +78,23 @@ function testone() {
      // Check if the clicked button number matches the random number
     let match = buttonNumber === randomNumber ? 1 : 0;
      // Push the data to the table
-    tableData.push({ match: match, timeElapsed: elapsedTime, currenttime: currentTime });
+    tableData.push({ match: match, timeElapsed: elapsedTime});
     logTableData();
     startTime = new Date().getTime();
-
 }
+
+function testtwo() {
+    // Calculate the elapsed time since the timer started
+    let currentTime = new Date().getTime();
+    let elapsedTime = currentTime - startTime;
+     // Check if the clicked button number matches the random number
+    let match = buttonNumber === (randomNumbertext+1) ? 1 : 0;
+     // Push the data to the table
+    tableDataTwo.push({ match: match, timeElapsed: elapsedTime});
+    logTableDataTwo();
+    startTime = new Date().getTime();
+}
+
  function changeColor() {
 
     // Get the color of the corresponding button
@@ -100,13 +126,20 @@ function updateClock() {
     let seconds = Math.floor(elapsedTime / 1000);
     let clock = document.querySelector('#clock');
     clock.textContent = seconds.toString()
-    if (seconds == 31) {
+    if (seconds > 5) {
     clearInterval(clockInterval); // Stop the clock
     alert('Time is up!'); // Show a popup
     // Reset clock variables
     clockTime = new Date().getTime();
     clockInterval = null;
     clock.textContent = "0";
+    clockrestart = clockrestart + 1;
+    }
+    if (clockrestart >1){
+        clockTime = null;
+        clockInterval = null;
+        clock.textContent = "0";
+
     }
 }
 
