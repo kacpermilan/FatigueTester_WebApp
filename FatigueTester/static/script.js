@@ -58,10 +58,10 @@ function blackone() {
      changeColor();
 }
 function testparts() {
-      if (clockrestart === 0){
+      if (clockrestart === 1){
          testone();
      }
-      if (clockrestart === 1){
+      if (clockrestart === 3){
          testtwo();
      }
 }
@@ -127,7 +127,7 @@ function updateClock() {
     let clock = document.querySelector('#clock');
     clock.textContent = seconds.toString()
 
-    if (seconds > 5 && clockrestart < 2) {
+    if (seconds > 30 && clockrestart < 2) {
     popupcon = "This the end of first part of the test. In the seccond part you have to click button of the color that describes the word. Click the button bellow when you are ready to start."
     document.getElementById("popuptext").textContent = popupcon;
     document.getElementById("popup-overlay").style.display = "flex";
@@ -145,7 +145,7 @@ function updateClock() {
             seconds = 0;
         }
 
-    if (seconds > 5 && clockrestart > 2){
+    if (seconds > 30 && clockrestart > 2){
         popupcon = "This the end of test. When you are ready click the button bellow to see the results."
         document.getElementById("popuptext").textContent = popupcon;
         document.getElementById("popup-overlay").style.display = "flex"; // Show the popup overlay
