@@ -8,6 +8,8 @@ const colors = [gettext("red"), gettext("blue"), gettext("green"), gettext("yell
 let tableData = [];
 let tableDataTwo = [];
 
+const h1Element = document.querySelector('.mt-5.mb-3');
+
 let rowsone = -1;
 let rowstwo = -1;
 let buttonNumber = 10;
@@ -15,7 +17,7 @@ let randomNumber = 10;
 let randomNumbertext = 10;
 let clockrestart = 0;
 let popupcon = gettext("This test consists of two parts. In the first part you have to click on the button which color corresponds with the color of the text. Click the button bellow when you are ready to start.");
-
+document.getElementById("popup-overlay").style.display = "none";
 // Function to log table data to console
 function logTableData() {
     console.log(tableData);
@@ -125,6 +127,8 @@ function startClock() {
         clockTime = new Date().getTime(); // Store the start time
         setInterval(updateClock, 0); // Start the clock
     }
+
+    h1Element.style.display = 'none';
 }
 
 // Function to update the clock
@@ -165,11 +169,15 @@ function updateClock() {
 }
 
 
+
 // Show the popup overlay on page load
-window.onload = function () {
+ function teststart() {
     let popuptext = document.getElementById("popuptext");
     popuptext.textContent = popupcon;
     document.getElementById("popup-overlay").style.display = "flex";
+    document.getElementById("start-test").style.display = "none";
+    h1Element.style.display = 'flex';
+    h1Element.style.textAlign = "center";
 }
 
 // Hide the popup overlay and start the test when the button is clicked
@@ -257,11 +265,9 @@ function result() {
     }
     console.log(category);
     const testArea = document.querySelector('.test_area');
-    const h1Element = document.querySelector('.mt-5.mb-3');
 
     // set their display property to none
     testArea.style.display = 'none';
-    h1Element.style.display = 'none';
 
     results_text.textContent = gettext("You are ") + gettext(category);
     correct_ans_text.textContent = gettext("Correct answers") + ": " + rightanw + "/" + testnum;

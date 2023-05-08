@@ -11,11 +11,11 @@
     </div>
 
     <figure class="text-center">
-        <h1 class="mt-5 mb-3"> {% trans 'To start the test click any of the buttons below!' %} </h1>
+        <h1  id = "iwantugone" class="mt-5 mb-3"> {% trans 'To start the test click any of the buttons below!' %} </h1>
     </figure>
-
     <div class="test_area">
         <div id="clock"></div>
+         <button id="start-test" onclick="teststart()">{% trans "Start" %}</button>
         <div id="rectangle" class ="rectangle">
             <div id="rectangle_text" class = "rectangle_text"></div>
         </div>

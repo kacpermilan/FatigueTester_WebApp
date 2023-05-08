@@ -11,7 +11,10 @@
     color: #333;
     border-radius: 20px;
     border: none;
-    position: relative;
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .test_button {
@@ -84,6 +87,11 @@
     width: 25px;
     height: 25px;
 }
+#iwantugone {
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
 
 #popup-overlay {
   position: fixed;
@@ -93,7 +101,7 @@
   height: 100%;
   background-color: rgba(0,0,0,0.5); /* semi-transparent black overlay */
   z-index: 1;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
 }
@@ -137,5 +145,19 @@
 .results_text {
     font-size: 2em;
     font-weight: bold;
+}
+
+#start-test {
+  margin: 10px auto 0;
+  display: block;
+  width: 150px;
+  height: 80px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
