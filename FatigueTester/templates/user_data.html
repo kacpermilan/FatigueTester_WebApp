@@ -64,7 +64,7 @@
                         {% for record in tests_data %}
                             <tr>
                                 <td><a href="{% url 'display_test_result' record.id %}"> {{ record.test_date }} </a></td>
-                                <td>{{ record.test_score|floatformat:2|mul:100 }}%</td>
+                                <td>{{ record.test_score|floatformat:4|mul:100 }}%</td>
                                 <td>{{ record.average_response_time }} ms</td>
                                 <td>{{ record.assessment|capfirst }}</td>
                             </tr>

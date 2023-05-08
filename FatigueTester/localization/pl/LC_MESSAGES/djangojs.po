@@ -1,0 +1,93 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-08 16:41+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n"
+"%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
+"%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
+#: .\FatigueTester\static\script.js:5
+msgid "red"
+msgstr "czerwony"
+
+#: .\FatigueTester\static\script.js:5
+msgid "blue"
+msgstr "niebieski"
+
+#: .\FatigueTester\static\script.js:5
+msgid "green"
+msgstr "zielony"
+
+#: .\FatigueTester\static\script.js:5
+msgid "yellow"
+msgstr "żółty"
+
+#: .\FatigueTester\static\script.js:5
+msgid "black"
+msgstr "czarny"
+
+#: .\FatigueTester\static\script.js:17
+msgid ""
+"This test consists of two parts. In the first part you have to click on the "
+"button which color corresponds with the color of the text. Click the button "
+"bellow when you are ready to start."
+msgstr ""
+"Ten test składa się z dwóch części. W pierwszej części musisz klikać na "
+"przycisk którego kolor zgadza się z kolorem tekstu. Kliknij dowolny przycisk "
+"gdy będziesz gotów."
+
+#: .\FatigueTester\static\script.js:140
+msgid ""
+"This the end of first part of the test. In the seccond part you have to "
+"click button of the color that describes the word. Click the button bellow "
+"when you are ready to start."
+msgstr ""
+"To koniec pierwszej części testu. W drugiej części musisz klikać na przycisk "
+"którego kolor jest opisywany przez tekst. Kliknij poniższy przycisk gdy "
+"będziesz gotów."
+
+#: .\FatigueTester\static\script.js:158
+msgid ""
+"This the end of test. When you are ready click the button bellow to see the "
+"results."
+msgstr ""
+"To koniec testu. Gdy będziesz gotów, kliknij w poniższy przycisk żeby "
+"zobaczyć swój wynik"
+
+#: .\FatigueTester\static\script.js:266
+msgid "You are "
+msgstr "Jesteś "
+
+#: .\FatigueTester\static\script.js:290
+msgid "Test part one"
+msgstr "Część pierwsza testu"
+
+#: .\FatigueTester\static\script.js:318
+msgid "Test part two"
+msgstr "Część druga testu"
+
+msgid "exhausted"
+msgstr "wyczerpany/a"
+
+msgid "tired"
+msgstr "zmęczony/a"
+
+msgid "slightly tired"
+msgstr "trochę zmęczony/a"
+
+msgid "well rested"
+msgstr "wypoczęty/a"

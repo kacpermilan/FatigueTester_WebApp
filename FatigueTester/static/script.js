@@ -2,7 +2,7 @@
 let startTime = new Date().getTime();
 
 //Defining the text in rectangle
-const colors = ["red", "blue", "green", "yellow", "black"];
+const colors = [gettext("red"), gettext("blue"), gettext("green"), gettext("yellow"), gettext("black")];
 
 // Define an empty array to store table data
 let tableData = [];
@@ -14,7 +14,7 @@ let buttonNumber = 10;
 let randomNumber = 10;
 let randomNumbertext = 10;
 let clockrestart = 0;
-let popupcon = "This test consists of two parts. In the first part you have to click on the button which color corresponds with the color of the text. Click the button bellow when you are ready to start.";
+let popupcon = gettext("This test consists of two parts. In the first part you have to click on the button which color corresponds with the color of the text. Click the button bellow when you are ready to start.");
 
 // Function to log table data to console
 function logTableData() {
@@ -129,7 +129,7 @@ function startClock() {
 
 // Function to update the clock
 function updateClock() {
-    const tests_duration = 30
+    const tests_duration = 1
     let currentTime = new Date().getTime();
     let elapsedTime = currentTime - clockTime;
     let seconds = Math.floor(elapsedTime / 1000);
@@ -137,7 +137,7 @@ function updateClock() {
     clock.textContent = seconds.toString()
 
     if (seconds > tests_duration && clockrestart < 2) {
-        popupcon = "This the end of first part of the test. In the seccond part you have to click button of the color that describes the word. Click the button bellow when you are ready to start."
+        popupcon = gettext("This the end of first part of the test. In the seccond part you have to click button of the color that describes the word. Click the button bellow when you are ready to start.")
         document.getElementById("popuptext").textContent = popupcon;
         document.getElementById("popup-overlay").style.display = "flex";
         if (clockrestart === 1) { // Show the popup overlay
@@ -155,7 +155,7 @@ function updateClock() {
     }
 
     if (seconds > tests_duration && clockrestart === 3) {
-        popupcon = "This the end of test. When you are ready click the button bellow to see the results."
+        popupcon = gettext("This the end of test. When you are ready click the button bellow to see the results.")
         document.getElementById("popuptext").textContent = popupcon;
         document.getElementById("popup-overlay").style.display = "flex"; // Show the popup overlay
         clockTime = null;
@@ -216,7 +216,7 @@ function result() {
     const meantime = (counttimeone + counttimetwo) / testnum;
     const rightanw = countone + counttwo;
     const stos = rightanw / testnum;
-    console.log("poprawne odp:", rightanw, "/", testnum, " średni czas:", meantime);
+    console.log("correct answers:", rightanw, "/", testnum, " average time:", meantime);
 
     let category;
 
@@ -263,7 +263,7 @@ function result() {
     testArea.style.display = 'none';
     h1Element.style.display = 'none';
 
-    results_text.textContent = "You are " + category;
+    results_text.textContent = gettext("You are ") + gettext(category);
 
 
     let rowNumbersone = [];
@@ -287,7 +287,7 @@ function result() {
     const dataone = {
         labels: rowNumbersone,
         datasets: [{
-            label: 'Test part one',
+            label: gettext('Test part one'),
             data: timetabone,
             fill: false,
             borderColor: 'rgb(75, 192, 192)',
@@ -315,7 +315,7 @@ function result() {
     const datatwo = {
         labels: rowNumberstwo,
         datasets: [{
-            label: 'Test part two',
+            label: gettext('Test part two'),
             data: timetabtwo,
             fill: false,
             borderColor: 'rgb(75, 192, 192)',

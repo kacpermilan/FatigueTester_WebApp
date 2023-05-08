@@ -139,6 +139,9 @@ def display_userdata(request):
     surveys_data = SurveyResult.objects.filter(user_id=request.user)
     patient_data = PatientModel.objects.filter(user_id=request.user, status='ACCEPTED')
 
+    for test in tests_data:
+        test.assessment = _(test.assessment)
+
     request_form = RequestForm(request.POST or None)
     if request.method == "POST":
         if request_form.is_valid():
@@ -181,6 +184,10 @@ def display_patientdata(request, username):
         if patient.patient.id == user_id:
             tests_data = TestResult.objects.filter(user_id=user_id)
             surveys_data = SurveyResult.objects.filter(user_id=user_id)
+
+            for test in tests_data:
+                test.assessment = _(test.assessment)
+
             return render(request, 'user_data.html', {'tests_data': tests_data, 'surveys_data': surveys_data,
                                                       'patient_username': username})
 

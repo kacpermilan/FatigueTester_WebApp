@@ -1,6 +1,7 @@
+from django.contrib.auth import views as auth_views
+from django.views.i18n import JavaScriptCatalog
 from django.urls import path
 from . import views
-from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', views.main_menu, name='main_menu'),
@@ -18,6 +19,7 @@ urlpatterns = [
     path('decline_invitation/<int:invite_id>/', views.decline_invitation, name='decline_invitation'),
     path('remove_supervisor/<int:invite_id>/', views.remove_supervisor, name='remove_supervisor'),
     path('switch-language/<str:language>/', views.switch_language, name='switch_language'),
+    path('jsi18n/', JavaScriptCatalog.as_view(), name='javascript_catalog'),
     path('change-password/',
          auth_views.PasswordChangeView.as_view(template_name='user_change_password.html'),
          name='change_password'),
