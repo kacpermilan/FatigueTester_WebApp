@@ -9,9 +9,11 @@
             <button id="start-button" onclick="startTest()">{% trans "Ready" %}</button>
         </div>
     </div>
+
     <figure class="text-center">
-        <h1 class="mt-5 mb-3"> {% trans 'To start the test click any of the buttons bellow!' %} </h1>
+        <h1 class="mt-5 mb-3"> {% trans 'To start the test click any of the buttons below!' %} </h1>
     </figure>
+
     <div class="test_area">
         <div id="clock"></div>
         <div id="rectangle" class ="rectangle">
@@ -25,15 +27,42 @@
             <input type="button" class="test_button button5" value="" onclick="blackone(); startClock();">
         </div>
     </div>
-    <div id = "results" class = "results">
-        <div id = "results_text" class = "results_text"></div>
-        <canvas id="lineChart"></canvas>
-        <canvas id="lineCharttwo"></canvas>
-    </div>
-    <div class="survey_access_temp_section text-center mt-5">
-        <a class="btn btn-primary" href="{% url 'survey' %}">
-            Tymczasowy placeholder dla ankiety (powinna wyskoczyć po testach {jeśli użytkownik zalogowany})
-        </a>
+
+    <div id="results" class="results text-center">
+        <div id="results_text" class="results_text mt-3 mb-5"></div>
+        <div class="card mb-5">
+            <div class="card-body">
+                <div class="container text-center">
+                    <div class="row align-items-start">
+                        <div id="correct_ans_text" class="col"></div>
+                        <div id="avg_result_text" class="col"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <canvas id="lineChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <canvas id="lineCharttwo"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5 mb-5">
+            <a class="btn btn-primary" href="{% url 'survey' %}">
+                {% trans "Aftertest Survey" %}
+            </a>
+        </div>
     </div>
 
 {% endblock %}

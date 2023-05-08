@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-08 16:40+0200\n"
+"POT-Creation-Date: 2023-05-08 17:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,9 +92,13 @@ msgstr "Tester Zmęczenia Umysłowego"
 msgid "Ready"
 msgstr "Gotów"
 
-#: .\FatigueTester\templates\main.html:13
-msgid "To start the test click any of the buttons bellow!"
+#: .\FatigueTester\templates\main.html:14
+msgid "To start the test click any of the buttons below!"
 msgstr "Kliknij dowolny przycisk aby rozpocząć!"
+
+#: .\FatigueTester\templates\main.html:63
+msgid "Aftertest Survey"
+msgstr "Ankieta po Teście"
 
 #: .\FatigueTester\templates\navbar.html:15
 msgid "Start Tests"
@@ -396,7 +400,7 @@ msgstr "Odrzucono zaproszenie."
 
 #: .\FatigueTester\views.py:240
 msgid "Supervisor Removed."
-msgstr "Usunięto Lekarza/Nadzorującego"
+msgstr "Usunięto Lekarza/Nadzorującego."
 
 msgid "Supervisor"
 msgstr "Lekarz/Nadzorujący"

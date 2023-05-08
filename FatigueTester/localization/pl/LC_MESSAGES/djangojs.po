@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-08 16:41+0200\n"
+"POT-Creation-Date: 2023-05-08 17:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,27 +20,27 @@ msgstr ""
 "%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
 "%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-#: .\FatigueTester\static\script.js:5
+#: .\FatigueTester\static\tests_script.js:5
 msgid "red"
 msgstr "czerwony"
 
-#: .\FatigueTester\static\script.js:5
+#: .\FatigueTester\static\tests_script.js:5
 msgid "blue"
 msgstr "niebieski"
 
-#: .\FatigueTester\static\script.js:5
+#: .\FatigueTester\static\tests_script.js:5
 msgid "green"
 msgstr "zielony"
 
-#: .\FatigueTester\static\script.js:5
+#: .\FatigueTester\static\tests_script.js:5
 msgid "yellow"
 msgstr "żółty"
 
-#: .\FatigueTester\static\script.js:5
+#: .\FatigueTester\static\tests_script.js:5
 msgid "black"
 msgstr "czarny"
 
-#: .\FatigueTester\static\script.js:17
+#: .\FatigueTester\static\tests_script.js:17
 msgid ""
 "This test consists of two parts. In the first part you have to click on the "
 "button which color corresponds with the color of the text. Click the button "
@@ -50,7 +50,7 @@ msgstr ""
 "przycisk którego kolor zgadza się z kolorem tekstu. Kliknij dowolny przycisk "
 "gdy będziesz gotów."
 
-#: .\FatigueTester\static\script.js:140
+#: .\FatigueTester\static\tests_script.js:140
 msgid ""
 "This the end of first part of the test. In the seccond part you have to "
 "click button of the color that describes the word. Click the button bellow "
@@ -60,7 +60,7 @@ msgstr ""
 "którego kolor jest opisywany przez tekst. Kliknij poniższy przycisk gdy "
 "będziesz gotów."
 
-#: .\FatigueTester\static\script.js:158
+#: .\FatigueTester\static\tests_script.js:158
 msgid ""
 "This the end of test. When you are ready click the button bellow to see the "
 "results."
@@ -68,15 +68,23 @@ msgstr ""
 "To koniec testu. Gdy będziesz gotów, kliknij w poniższy przycisk żeby "
 "zobaczyć swój wynik"
 
-#: .\FatigueTester\static\script.js:266
+#: .\FatigueTester\static\tests_script.js:266
 msgid "You are "
 msgstr "Jesteś "
 
-#: .\FatigueTester\static\script.js:290
+#: .\FatigueTester\static\tests_script.js:267
+msgid "Correct answers"
+msgstr "Poprawne odpowiedzi"
+
+#: .\FatigueTester\static\tests_script.js:268
+msgid "Average response time"
+msgstr "Średni czas reakcji"
+
+#: .\FatigueTester\static\tests_script.js:291
 msgid "Test part one"
 msgstr "Część pierwsza testu"
 
-#: .\FatigueTester\static\script.js:318
+#: .\FatigueTester\static\tests_script.js:319
 msgid "Test part two"
 msgstr "Część druga testu"
 

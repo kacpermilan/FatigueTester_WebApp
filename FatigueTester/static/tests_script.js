@@ -129,7 +129,7 @@ function startClock() {
 
 // Function to update the clock
 function updateClock() {
-    const tests_duration = 1
+    const tests_duration = 30
     let currentTime = new Date().getTime();
     let elapsedTime = currentTime - clockTime;
     let seconds = Math.floor(elapsedTime / 1000);
@@ -237,7 +237,7 @@ function result() {
         if (meantime < 1100 && meantime >= 800) {
             category = "tired";
         }
-        if (meantime < 800 && meantime >= 600) {
+        if (meantime < 800) {
             category = "slightly tired";
         }
     }
@@ -264,7 +264,8 @@ function result() {
     h1Element.style.display = 'none';
 
     results_text.textContent = gettext("You are ") + gettext(category);
-
+    correct_ans_text.textContent = gettext("Correct answers") + ": " + rightanw + "/" + testnum;
+    avg_result_text.textContent = gettext("Average response time") + ": " + meantime.toFixed(2) + " ms";
 
     let rowNumbersone = [];
     let timetabone = [];
@@ -340,6 +341,7 @@ function result() {
     const ctxtwo = document.getElementById('lineCharttwo').getContext('2d');
     const lineCharttwo = new Chart(ctxtwo, configtwo);
 
+    document.getElementById("results").style.display = "block";
     sendTestData(stos, meantime, category, tableData, tableDataTwo)
 }
 
@@ -360,8 +362,8 @@ function sendTestData(test_score, average_response_time, assessment, type_one_da
             'test_score': test_score,
             'average_response_time': average_response_time,
             'assessment': assessment,
-            'type_one_data': JSON.stringify(type_one_data),
-            'type_two_data': JSON.stringify(type_two_data),
+            'type_one_data': JSON.stringify(type_one_data.slice(1)),
+            'type_two_data': JSON.stringify(type_two_data.slice(1)),
         }),
     })
     .then(response => response.json())

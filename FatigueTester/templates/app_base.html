@@ -9,6 +9,8 @@
         <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
         <link rel="icon" href="{% static 'icon.png' %}">
         <title> {% trans 'Mental Fatigue Tester' %} </title>
+
+        <!-- Django JS translation file -->
         <script src="{% url 'javascript_catalog' %}" type="text/javascript"></script>
 
         <!-- Bootstrap css file -->
@@ -42,7 +44,7 @@
                 crossorigin="anonymous">
         </script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script src="{% static 'script.js' %}"></script>
+        <script src="{% static 'tests_script.js' %}"></script>
         <script src="{% static 'toogle_dark_mode.js' %}"></script>
     </body>
 </html>
