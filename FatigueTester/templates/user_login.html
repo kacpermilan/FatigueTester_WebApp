@@ -8,7 +8,7 @@
     <form method="POST" action="{% url 'main_menu' %}">
         {% csrf_token %}
         <div class="mb-3">
-            <input type="text" class="form-control" name="email_field" placeholder="{% trans 'E-mail' %}" required>
+            <input type="text" class="form-control" name="email_field" placeholder="{% trans 'Username' %}" required>
         </div>
         <div class="mb-3">
             <input type="password" class="form-control" name="password_field" placeholder="{% trans 'Password' %}" required>
