@@ -232,17 +232,17 @@ function result() {
         category = "exhausted";
     }
     if (stos <= 0.60 && stos > 0.30) {
-        if (meantime > 1100) {
+        if (meantime > 1200) {
             category = "exhausted";
         } else {
             category = "tired";
         }
     }
     if (stos <= 0.85 && stos > 0.60) {
-        if (meantime >= 1100) {
+        if (meantime >= 1200) {
             category = "exhausted";
         }
-        if (meantime < 1100 && meantime >= 800) {
+        if (meantime < 1200 && meantime >= 800) {
             category = "tired";
         }
         if (meantime < 800) {
@@ -250,10 +250,10 @@ function result() {
         }
     }
     if (stos <= 1 && stos > 0.85) {
-        if (meantime >= 1100) {
+        if (meantime >= 1200) {
             category = "exhausted";
         }
-        if (meantime < 1100 && meantime >= 800) {
+        if (meantime < 1200 && meantime >= 800) {
             category = "tired";
         }
         if (meantime < 800 && meantime >= 650) {
