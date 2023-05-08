@@ -27,24 +27,12 @@ DJANGO_ENV = os.environ.get('DJANGO_ENV', 'development')
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-4%*l@u4j8@*6gc31skp#-wdih7(8i*ae^l#_!#im3pgq$&y$%)'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-if DEBUG:
-    print("DB_NAME:", os.getenv('DB_NAME'))
-    print("DB_USER:", os.getenv('DB_USER'))
-    print("DB_PASSWORD:", os.getenv('DB_PASSWORD'))
-    print("DB_HOST:", os.getenv('DB_HOST'))
-    print("DB_PORT:", os.getenv('DB_PORT'))
-    print("DB_NAME_PRO:", os.getenv('DB_NAME_PRO'))
-    print("DB_USER_PRO:", os.getenv('DB_USER_PRO'))
-    print("DB_PASSWORD_PRO:", os.getenv('DB_PASSWORD_PRO'))
-    print("DB_HOST_PRO:", os.getenv('DB_HOST_PRO'))
-    print("DB_PORT_PRO:", os.getenv('DB_PORT_PRO'))
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -95,10 +83,6 @@ WSGI_APPLICATION = 'FatigueTester_WebApp.wsgi.application'
 
 if DJANGO_ENV == 'development':
     DATABASES = {
-        # 'default': {
-        #     'ENGINE': 'django.db.backends.sqlite3',
-        #     'NAME': BASE_DIR / 'db.sqlite3',
-        # }
         'default': {
             'ENGINE': 'django.db.backends.mysql',
             'NAME': os.getenv('DB_NAME'),
