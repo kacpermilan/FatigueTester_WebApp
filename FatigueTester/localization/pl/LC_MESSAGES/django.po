@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-08 17:46+0200\n"
+"POT-Creation-Date: 2023-05-08 19:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -152,36 +152,40 @@ msgstr "Komentarz (opcjonalny)"
 msgid "Submit"
 msgstr "Wyślij"
 
-#: .\FatigueTester\templates\test_record.html:7
+#: .\FatigueTester\templates\test_record.html:9
 #: .\FatigueTester\templates\user_data.html:12
 msgid "Return"
 msgstr "Powrót"
 
-#: .\FatigueTester\templates\test_record.html:15
+#: .\FatigueTester\templates\test_record.html:12
+msgid "Test from"
+msgstr "Test z dnia"
+
+#: .\FatigueTester\templates\test_record.html:38
 msgid "Answer Number"
 msgstr "Numer Odpowiedzi"
 
-#: .\FatigueTester\templates\test_record.html:16
+#: .\FatigueTester\templates\test_record.html:39
 msgid "Test Part"
 msgstr "Część Testu"
 
-#: .\FatigueTester\templates\test_record.html:17
+#: .\FatigueTester\templates\test_record.html:40
 msgid "Correct"
 msgstr "Poprawne"
 
-#: .\FatigueTester\templates\test_record.html:18
+#: .\FatigueTester\templates\test_record.html:41
 msgid "Response Time"
 msgstr "Czas Reakcji"
 
-#: .\FatigueTester\templates\test_record.html:28
+#: .\FatigueTester\templates\test_record.html:51
 msgid "Yes"
 msgstr "Tak"
 
-#: .\FatigueTester\templates\test_record.html:30
+#: .\FatigueTester\templates\test_record.html:53
 msgid "No"
 msgstr "Nie"
 
-#: .\FatigueTester\templates\test_record.html:39
+#: .\FatigueTester\templates\test_record.html:62
 msgid "Somehow, this test has no answers."
 msgstr "Z jakiegoś powodu, ten test nie ma odpowiedzi."
 
@@ -390,15 +394,15 @@ msgstr "Nie odnaleziono użytkownika"
 msgid "You don't have access to this Patient"
 msgstr "Nie masz dostępu do tego Pacjenta"
 
-#: .\FatigueTester\views.py:222
+#: .\FatigueTester\views.py:240
 msgid "Invitation accepted."
 msgstr "Zaakceptowano zaproszenie."
 
-#: .\FatigueTester\views.py:231
+#: .\FatigueTester\views.py:249
 msgid "Invitation declined."
 msgstr "Odrzucono zaproszenie."
 
-#: .\FatigueTester\views.py:240
+#: .\FatigueTester\views.py:258
 msgid "Supervisor Removed."
 msgstr "Usunięto Lekarza/Nadzorującego."
 

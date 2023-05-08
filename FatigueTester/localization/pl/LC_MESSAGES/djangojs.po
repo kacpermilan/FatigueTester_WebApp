@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-08 17:46+0200\n"
+"POT-Creation-Date: 2023-05-08 18:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -87,6 +87,9 @@ msgstr "Część pierwsza testu"
 #: .\FatigueTester\static\tests_script.js:319
 msgid "Test part two"
 msgstr "Część druga testu"
+
+msgid "Response Time"
+msgstr "Czas Reakcji"
 
 msgid "exhausted"
 msgstr "wyczerpany/a"

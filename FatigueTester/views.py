@@ -200,9 +200,27 @@ def display_test_result(request, test_id):
         messages.success(request, _("This section is available only for logged in users"))
         return redirect('login')
 
+    test_date = TestResult.objects.filter(id=test_id)[0].test_date
     test_answer_data = TestAnswer.objects.filter(associated_test_id=test_id)
+    correctness_one = []
+    response_times_one = []
+    correctness_two = []
+    response_times_two = []
 
-    return render(request, 'test_record.html', {'test_answers': test_answer_data})
+    for record in test_answer_data:
+        if record.type == 1:
+            correctness_one.append(record.correctness)
+            response_times_one.append(record.response_time)
+        else:
+            correctness_two.append(record.correctness)
+            response_times_two.append(record.response_time)
+
+    return render(request, 'test_record.html', {'test_answers': test_answer_data,
+                                                'test_date': test_date,
+                                                'correctness_one': correctness_one,
+                                                'response_times_one': response_times_one,
+                                                'correctness_two': correctness_two,
+                                                'response_times_two': response_times_two})
 
 
 def supervisors_and_invitations(request):
