@@ -242,10 +242,10 @@ function result() {
         if (meantime >= 1200) {
             category = "exhausted";
         }
-        if (meantime < 1200 && meantime >= 850) {
+        if (meantime < 1200 && meantime >= 900) {
             category = "tired";
         }
-        if (meantime < 850) {
+        if (meantime < 900) {
             category = "slightly tired";
         }
     }
@@ -253,13 +253,13 @@ function result() {
         if (meantime >= 1200) {
             category = "exhausted";
         }
-        if (meantime < 1200 && meantime >= 850) {
+        if (meantime < 1200 && meantime >= 900) {
             category = "tired";
         }
-        if (meantime < 850 && meantime >= 650) {
+        if (meantime < 900 && meantime >= 700) {
             category = "slightly tired";
         }
-        if (meantime < 650) {
+        if (meantime < 700) {
             category = "well rested";
         }
     }
