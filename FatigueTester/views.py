@@ -11,7 +11,7 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import TestResult, TestAnswer, SurveyResult, PatientModel
 from .forms import RegisterForm, SurveyForm, RequestForm
 
-
+# Authentication/redirecting to mm/error
 def main_menu(request):
     if request.method == 'POST':
         username = request.POST['email_field']
@@ -30,7 +30,7 @@ def main_menu(request):
 
     return render(request, 'main.html')
 
-
+# Get data/create test result, test answer/save to db/get response - success/error
 @csrf_exempt
 def store_test_data(request):
     if request.method == "POST":
@@ -68,7 +68,7 @@ def store_test_data(request):
     else:
         return JsonResponse({"status": "error"})
 
-
+# Check if logged/check content/save survey results/ redirect to mm
 def new_survey(request):
     if not request.user.is_authenticated:
         messages.success(request, _("This section is available only for logged in users"))
