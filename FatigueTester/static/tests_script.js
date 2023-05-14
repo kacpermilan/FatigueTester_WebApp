@@ -1,24 +1,32 @@
-// Start the timer
+// Setting start time
 let startTime = new Date().getTime();
 
-//Defining the text in rectangle
+//Defining the text
 const colors = [gettext("red"), gettext("blue"), gettext("green"), gettext("yellow"), gettext("black")];
 
 // Define an empty array to store table data
 let tableData = [];
 let tableDataTwo = [];
 
+// Text as a variable
 const h1Element = document.querySelector('.mt-5.mb-3');
 
+// Variables for counting rows
 let rowsone = -1;
 let rowstwo = -1;
+
+// Variables for test
 let buttonNumber = 10;
 let randomNumber = 10;
 let randomNumbertext = 10;
 let clockrestart = 0;
+
+// Popup content and display 1
 let popupcon = gettext("This test consists of two parts. In the first part you have to click on the button which color corresponds with the color of the text. Click the button bellow when you are ready to start.");
 document.getElementById("popup-overlay").style.display = "none";
-// Function to log table data to console
+
+
+// Functions to log table data to console
 function logTableData() {
     console.log(tableData);
     rowsone = rowsone + 1
@@ -67,6 +75,7 @@ function blackone() {
     changeColor();
 }
 
+// Two test parts changing based on how many times the clock has been restarted
 function testparts() {
     if (clockrestart === 1) {
         testone();
@@ -76,12 +85,15 @@ function testparts() {
     }
 }
 
+
+// Generating random numbers for the content of test text and it's color
 function randomnumbers() {
     // Get a random numbers for color and content of text
     randomNumber = Math.floor(Math.random() * 5) + 1;
     randomNumbertext = Math.floor(Math.random() * 5);
 }
 
+// Test one (text color)
 function testone() {
     // Calculate the elapsed time since the timer started
     let currentTime = new Date().getTime();
@@ -94,6 +106,7 @@ function testone() {
     startTime = new Date().getTime();
 }
 
+// Test two (text content)
 function testtwo() {
     // Calculate the elapsed time since the timer started
     let currentTime = new Date().getTime();
@@ -106,6 +119,7 @@ function testtwo() {
     startTime = new Date().getTime();
 }
 
+// Changing color and content of text
 function changeColor() {
     // Get the color of the corresponding button
     let buttonColor = window.getComputedStyle(document.querySelector(".button" + randomNumber)).getPropertyValue("background-color");
@@ -128,7 +142,7 @@ function startClock() {
         setInterval(updateClock, 0); // Start the clock
     }
 
-    h1Element.style.display = 'none';
+    h1Element.style.display = 'none'; // When clock starts hide instruction
 }
 
 // Function to update the clock
@@ -140,6 +154,7 @@ function updateClock() {
     let clock = document.querySelector('#clock');
     clock.textContent = seconds.toString()
 
+    // Second part of test popup and time restart
     if (seconds > tests_duration && clockrestart < 2) {
         popupcon = gettext("This the end of first part of the test. In the seccond part you have to click button of the color that describes the word. Click the button bellow when you are ready to start.")
         document.getElementById("popuptext").textContent = popupcon;
@@ -158,6 +173,7 @@ function updateClock() {
         seconds = 0;
     }
 
+    // End of the test popup and time stop
     if (seconds > tests_duration && clockrestart === 3) {
         popupcon = gettext("This the end of test. When you are ready click the button bellow to see the results.")
         document.getElementById("popuptext").textContent = popupcon;
@@ -169,8 +185,7 @@ function updateClock() {
 }
 
 
-
-// Show the popup overlay on page load
+// Show the popup 1 overlay on page load
  function teststart() {
     let popuptext = document.getElementById("popuptext");
     popuptext.textContent = popupcon;
@@ -191,7 +206,9 @@ function startTest() {
     }
 }
 
+// Test results
 function result() {
+    // Variables for counting test results
     let countone = 0;
     let counttwo = 0;
     let time;
@@ -220,12 +237,13 @@ function result() {
 
     }
 
-    const testnum = rowsone + rowstwo;
+    const testnum = rowsone + rowstwo; // Number of test answer
     const meantime = (counttimeone + counttimetwo) / testnum;
-    const rightanw = countone + counttwo;
-    const stos = rightanw / testnum;
-    console.log("correct answers:", rightanw, "/", testnum, " average time:", meantime);
+    const rightanw = countone + counttwo; // Number of correct answers
+    const stos = rightanw / testnum; // Correct answers to number of answers
+    console.log("correct answers:", rightanw, "/", testnum, " average time:", meantime); // Logging data to console
 
+    // Setting a category
     let category;
 
     if (stos <= 0.30) {
@@ -263,16 +281,19 @@ function result() {
             category = "well rested";
         }
     }
-    console.log(category);
+    console.log(category); // Logging a category to console
     const testArea = document.querySelector('.test_area');
 
-    // set their display property to none
+    // Hide test area
     testArea.style.display = 'none';
 
+    // Show results
     results_text.textContent = gettext("You are ") + gettext(category);
     correct_ans_text.textContent = gettext("Correct answers") + ": " + rightanw + "/" + testnum;
     avg_result_text.textContent = gettext("Average response time") + ": " + meantime.toFixed(2) + " ms";
 
+
+    // Creating data tabs for creating a graphs
     let rowNumbersone = [];
     let timetabone = [];
     let matchtabone = [];
@@ -291,6 +312,7 @@ function result() {
         matchtabtwo.push(tableDataTwo[i].match);
     }
 
+    // Graph for part one
     const dataone = {
         labels: rowNumbersone,
         datasets: [{
@@ -319,6 +341,7 @@ function result() {
     const ctx = document.getElementById('lineChart').getContext('2d');
     const lineChart = new Chart(ctx, configone);
 
+    // Graph for part two
     const datatwo = {
         labels: rowNumberstwo,
         datasets: [{
@@ -348,9 +371,11 @@ function result() {
     const lineCharttwo = new Chart(ctxtwo, configtwo);
 
     document.getElementById("results").style.display = "block";
+
+    // Sending data to database
     sendTestData(stos, meantime, category, tableData, tableDataTwo)
 }
-
+// Send data to database, get response - success/error
 function sendTestData(test_score, average_response_time, assessment, type_one_data, type_two_data)
 {
     const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
