@@ -68,7 +68,7 @@ def store_test_data(request):
     else:
         return JsonResponse({"status": "error"})
 
-# Check if logged/check content/save survey results/ redirect to mm
+# Check if logged/check content/get survey results/ redirect to mm
 def new_survey(request):
     if not request.user.is_authenticated:
         messages.success(request, _("This section is available only for logged in users"))
