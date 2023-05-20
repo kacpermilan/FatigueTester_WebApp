@@ -1,5 +1,6 @@
 {% extends 'app_base.html' %}
 {% load i18n %}
+{% load static %}
 {% load group_filters %}
 {% load math_filters %}
 
@@ -144,10 +145,10 @@
             </div>
         {% endif %}
     </div>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap4.min.css" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap4.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap_dataTables.css' %}" />
+    <script src="{% static 'js/jquery_3_6_0.js' %}"></script>
+    <script src="{% static 'js/jquery_dataTables.js' %}"></script>
+    <script src="{% static 'js/bootstrap_dataTables.js' %}"></script>
     <script>
         $(document).ready(function() {
             $('#testsTable').DataTable();

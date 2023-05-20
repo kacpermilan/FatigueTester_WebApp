@@ -1,4 +1,5 @@
 {% extends 'app_base.html' %}
+{% load static %}
 {% load i18n %}
 
 {% block content %}
@@ -61,11 +62,11 @@
     {% else %}
         <h3 class="mt-5 mb-3 text-center fst-italic">{% trans "Somehow, this test has no answers." %}</h3>
     {% endif %}
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap4.min.css" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap_dataTables.css' %}" />
+    <script src="{% static 'js/jquery_3_6_0.js' %}"></script>
+    <script src="{% static 'js/jquery_dataTables.js' %}"></script>
+    <script src="{% static 'js/bootstrap_dataTables.js' %}"></script>
+    <script src="{% static 'js/chart_js.js' %}"></script>
     <script>
         $(document).ready(function() {
             $('#testAnswersTable').DataTable();
