@@ -1,15 +1,21 @@
+import csv
 import json
-from django.http import JsonResponse, Http404
-from django.shortcuts import render, redirect, get_object_or_404
+import io
+
+from django.conf import settings
+from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from django.contrib import messages
+from django.http import JsonResponse, Http404, HttpResponse
+from django.shortcuts import render, redirect, get_object_or_404
+from django.utils.datastructures import MultiValueDictKeyError
+from django.utils.timezone import now
 from django.utils.translation import activate
 from django.utils.translation import gettext as _
-from django.utils.timezone import now
 from django.views.decorators.csrf import csrf_exempt
-from .models import TestResult, TestAnswer, SurveyResult, PatientModel
+
 from .forms import RegisterForm, SurveyForm, RequestForm
+from .models import TestResult, TestAnswer, SurveyResult, PatientModel
 
 
 # Authentication/redirecting to mm/error
@@ -138,6 +144,49 @@ def display_userdata(request):
         messages.success(request, _("This section is available only for logged in users"))
         return redirect('login')
 
+    if request.method == 'POST':
+        try:
+            csv_file = request.FILES['file']
+
+        except MultiValueDictKeyError:
+            messages.success(request, _("No .csv file detected"))
+            return redirect('database')
+
+        decoded_file = csv_file.read().decode('utf-8').splitlines()
+        reader = csv.DictReader(decoded_file)
+
+        test_answer_data = []
+        correctness_one = []
+        response_times_one = []
+        correctness_two = []
+        response_times_two = []
+
+        for row in reader:
+            # Casting does not work, for some reason
+            if row['Correctness'] == "True":
+                correct = True
+            else:
+                correct = False
+
+            test_answer_data.append({
+                'type': int(row['Type']),
+                'correctness': correct,
+                'response_time': int(row['Response Time']),
+            })
+            if int(row['Type']) == 1:
+                correctness_one.append(correct)
+                response_times_one.append(int(row['Response Time']))
+            else:
+                correctness_two.append(correct)
+                response_times_two.append(int(row['Response Time']))
+
+        return render(request, 'test_loaded_display.html', {'filename': csv_file,
+                                                            'test_answers': test_answer_data,
+                                                            'correctness_one': correctness_one,
+                                                            'response_times_one': response_times_one,
+                                                            'correctness_two': correctness_two,
+                                                            'response_times_two': response_times_two})
+
     tests_data = TestResult.objects.filter(user_id=request.user)
     surveys_data = SurveyResult.objects.filter(user_id=request.user)
     patient_data = PatientModel.objects.filter(user_id=request.user, status='ACCEPTED')
@@ -218,12 +267,29 @@ def display_test_result(request, test_id):
             correctness_two.append(record.correctness)
             response_times_two.append(record.response_time)
 
-    return render(request, 'test_record.html', {'test_answers': test_answer_data,
+    return render(request, 'test_record.html', {'test_id': test_id,
+                                                'test_answers': test_answer_data,
                                                 'test_date': test_date,
                                                 'correctness_one': correctness_one,
                                                 'response_times_one': response_times_one,
                                                 'correctness_two': correctness_two,
                                                 'response_times_two': response_times_two})
+
+
+def download_test_result(request, test_id):
+    test_answer_data = TestAnswer.objects.filter(associated_test_id=test_id)
+    test_date = TestResult.objects.filter(id=test_id)[0].test_date
+
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = f'attachment; filename="test_result_{test_date}.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['Type', 'Correctness', 'Response Time'])
+
+    for record in test_answer_data:
+        writer.writerow([record.type, record.correctness, record.response_time])
+
+    return response
 
 
 def supervisors_and_invitations(request):

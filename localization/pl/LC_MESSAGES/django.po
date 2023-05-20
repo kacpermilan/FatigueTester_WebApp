@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-08 19:03+0200\n"
+"POT-Creation-Date: 2023-05-20 18:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,17 +24,17 @@ msgstr ""
 msgid "Patient's Username"
 msgstr "Nazwa Pacjenta"
 
-#: .\FatigueTester\forms.py:44 .\FatigueTester\templates\user_data.html:125
+#: .\FatigueTester\forms.py:44 .\FatigueTester\templates\user_data.html:131
 #: .\FatigueTester\templates\user_profile.html:23
 msgid "E-mail Address"
 msgstr "Adres E-mail"
 
-#: .\FatigueTester\forms.py:49 .\FatigueTester\templates\user_data.html:123
+#: .\FatigueTester\forms.py:49 .\FatigueTester\templates\user_data.html:129
 #: .\FatigueTester\templates\user_profile.html:15
 msgid "First Name"
 msgstr "Imię"
 
-#: .\FatigueTester\forms.py:54 .\FatigueTester\templates\user_data.html:124
+#: .\FatigueTester\forms.py:54 .\FatigueTester\templates\user_data.html:130
 #: .\FatigueTester\templates\user_profile.html:19
 msgid "Last Name"
 msgstr "Nazwisko"
@@ -43,7 +43,7 @@ msgstr "Nazwisko"
 msgid "Account Type"
 msgstr "Typ Konta"
 
-#: .\FatigueTester\forms.py:66
+#: .\FatigueTester\forms.py:66 .\FatigueTester\templates\user_login.html:11
 msgid "Username"
 msgstr "Nazwa Użytkownika"
 
@@ -95,6 +95,12 @@ msgstr "Gotów"
 #: .\FatigueTester\templates\main.html:14
 msgid "To start the test click any of the buttons below!"
 msgstr "Kliknij dowolny przycisk aby rozpocząć!"
+
+#: .\FatigueTester\templates\main.html:18
+#, fuzzy
+#| msgid "Start Tests"
+msgid "Start"
+msgstr "Rozpocznij Test"
 
 #: .\FatigueTester\templates\main.html:63
 msgid "Aftertest Survey"
@@ -152,42 +158,62 @@ msgstr "Komentarz (opcjonalny)"
 msgid "Submit"
 msgstr "Wyślij"
 
-#: .\FatigueTester\templates\test_record.html:9
-#: .\FatigueTester\templates\user_data.html:12
+#: .\FatigueTester\templates\test_loaded_display.html:10
+#: .\FatigueTester\templates\test_record.html:10
+#: .\FatigueTester\templates\user_data.html:13
 msgid "Return"
 msgstr "Powrót"
 
-#: .\FatigueTester\templates\test_record.html:12
-msgid "Test from"
+#: .\FatigueTester\templates\test_loaded_display.html:13
+#, fuzzy
+#| msgid "Test from"
+msgid "Test from file"
 msgstr "Test z dnia"
 
-#: .\FatigueTester\templates\test_record.html:38
+#: .\FatigueTester\templates\test_loaded_display.html:39
+#: .\FatigueTester\templates\test_record.html:39
 msgid "Answer Number"
 msgstr "Numer Odpowiedzi"
 
-#: .\FatigueTester\templates\test_record.html:39
+#: .\FatigueTester\templates\test_loaded_display.html:40
+#: .\FatigueTester\templates\test_record.html:40
 msgid "Test Part"
 msgstr "Część Testu"
 
-#: .\FatigueTester\templates\test_record.html:40
+#: .\FatigueTester\templates\test_loaded_display.html:41
+#: .\FatigueTester\templates\test_record.html:41
 msgid "Correct"
 msgstr "Poprawne"
 
-#: .\FatigueTester\templates\test_record.html:41
+#: .\FatigueTester\templates\test_loaded_display.html:42
+#: .\FatigueTester\templates\test_record.html:42
 msgid "Response Time"
 msgstr "Czas Reakcji"
 
-#: .\FatigueTester\templates\test_record.html:51
+#: .\FatigueTester\templates\test_loaded_display.html:52
+#: .\FatigueTester\templates\test_record.html:52
+#: .\FatigueTester\templates\test_record.html:66
 msgid "Yes"
 msgstr "Tak"
 
-#: .\FatigueTester\templates\test_record.html:53
+#: .\FatigueTester\templates\test_loaded_display.html:54
+#: .\FatigueTester\templates\test_record.html:54
+#: .\FatigueTester\templates\test_record.html:68
 msgid "No"
 msgstr "Nie"
 
-#: .\FatigueTester\templates\test_record.html:62
+#: .\FatigueTester\templates\test_loaded_display.html:63
+#: .\FatigueTester\templates\test_record.html:78
 msgid "Somehow, this test has no answers."
 msgstr "Z jakiegoś powodu, ten test nie ma odpowiedzi."
+
+#: .\FatigueTester\templates\test_record.html:13
+msgid "Test from"
+msgstr "Test z dnia"
+
+#: .\FatigueTester\templates\test_record.html:76
+msgid "Download as .csv"
+msgstr "Pobierz plik .csv"
 
 #: .\FatigueTester\templates\user_change_password.html:7
 #: .\FatigueTester\templates\user_profile.html:41
@@ -204,84 +230,84 @@ msgstr "Twój formularz ma błędy"
 msgid "Close"
 msgstr "Zamknij"
 
-#: .\FatigueTester\templates\user_data.html:15
-#: .\FatigueTester\templates\user_data.html:21
-#: .\FatigueTester\templates\user_data.html:126
+#: .\FatigueTester\templates\user_data.html:16
+#: .\FatigueTester\templates\user_data.html:22
+#: .\FatigueTester\templates\user_data.html:132
 msgid "Userdata"
 msgstr "Dane Użytkownika"
 
-#: .\FatigueTester\templates\user_data.html:27
+#: .\FatigueTester\templates\user_data.html:28
 msgid "Tests"
 msgstr "Testy"
 
-#: .\FatigueTester\templates\user_data.html:32
+#: .\FatigueTester\templates\user_data.html:33
 msgid "Surveys"
 msgstr "Ankiety"
 
-#: .\FatigueTester\templates\user_data.html:38
-#: .\FatigueTester\templates\user_data.html:44
+#: .\FatigueTester\templates\user_data.html:39
+#: .\FatigueTester\templates\user_data.html:45
 msgid "Patients"
 msgstr "Pacjenci"
 
-#: .\FatigueTester\templates\user_data.html:57
+#: .\FatigueTester\templates\user_data.html:58
 msgid "Test Date"
 msgstr "Data Testu"
 
-#: .\FatigueTester\templates\user_data.html:58
+#: .\FatigueTester\templates\user_data.html:59
 msgid "Correctness"
 msgstr "Poprawność"
 
-#: .\FatigueTester\templates\user_data.html:59
+#: .\FatigueTester\templates\user_data.html:60
 msgid "Average Response Time"
 msgstr "Średni Czas Reakcji"
 
-#: .\FatigueTester\templates\user_data.html:60
+#: .\FatigueTester\templates\user_data.html:61
 msgid "Assessment"
 msgstr "Ocena"
 
-#: .\FatigueTester\templates\user_data.html:75
+#: .\FatigueTester\templates\user_data.html:76
 msgid "There aren't any tests to display"
 msgstr "Brak testów do wyświetlenia"
 
-#: .\FatigueTester\templates\user_data.html:85
+#: .\FatigueTester\templates\user_data.html:81
+msgid "Display result from .csv"
+msgstr "Wyświetl wynik z pliku .csv"
+
+#: .\FatigueTester\templates\user_data.html:91
 msgid "Survey Date"
 msgstr "Data Ankiety"
 
-#: .\FatigueTester\templates\user_data.html:86
+#: .\FatigueTester\templates\user_data.html:92
 msgid "Test Efficiency Rating"
 msgstr "Ocena Skuteczności Testu"
 
-#: .\FatigueTester\templates\user_data.html:87
+#: .\FatigueTester\templates\user_data.html:93
 msgid "Comment"
 msgstr "Komentarz"
 
-#: .\FatigueTester\templates\user_data.html:101
+#: .\FatigueTester\templates\user_data.html:107
 msgid "There aren't any surveys to display"
 msgstr "Brak ankiet do wyświetlenia"
 
-#: .\FatigueTester\templates\user_data.html:109
+#: .\FatigueTester\templates\user_data.html:115
 msgid "Invite the Patient"
 msgstr "Zaproś Pacjenta"
 
-#: .\FatigueTester\templates\user_data.html:114
+#: .\FatigueTester\templates\user_data.html:120
 msgid "Send Invitation"
 msgstr "Wyślij Zaproszenie"
 
-#: .\FatigueTester\templates\user_data.html:122
+#: .\FatigueTester\templates\user_data.html:128
 msgid "Patient"
 msgstr "Pacjent"
 
-#: .\FatigueTester\templates\user_data.html:136
+#: .\FatigueTester\templates\user_data.html:142
 msgid "Data"
 msgstr "Dane"
 
-#: .\FatigueTester\templates\user_data.html:142
+#: .\FatigueTester\templates\user_data.html:148
 msgid "There aren't any patients to display"
 msgstr "Brak pacjentów do wyświetlenia"
-
-#: .\FatigueTester\templates\user_login.html:11
-msgid "E-mail"
-msgstr "E-mail"
 
 #: .\FatigueTester\templates\user_password_change_done.html:5
 msgid "Password Change Successful"
@@ -343,68 +369,75 @@ msgstr "Odrzuć"
 msgid "No pending invitations."
 msgstr "Brak oczekujących zaproszeń."
 
-#: .\FatigueTester\views.py:24
+#: .\FatigueTester\views.py:31
 msgid "You have been logged in"
 msgstr "Zalogowano pomyślnie"
 
-#: .\FatigueTester\views.py:28
+#: .\FatigueTester\views.py:35
 msgid "There was an error logging in, please try again"
 msgstr "Wystąpił problem przy próbie zalogowania, proszę spróbuj ponownie"
 
-#: .\FatigueTester\views.py:74 .\FatigueTester\views.py:127
-#: .\FatigueTester\views.py:135 .\FatigueTester\views.py:172
-#: .\FatigueTester\views.py:200
+#: .\FatigueTester\views.py:83 .\FatigueTester\views.py:136
+#: .\FatigueTester\views.py:144 .\FatigueTester\views.py:218
+#: .\FatigueTester\views.py:246
 msgid "This section is available only for logged in users"
 msgstr "Ta sekcja jest dostępna tylko dla zalogowanych użytkowników"
 
-#: .\FatigueTester\views.py:84
+#: .\FatigueTester\views.py:93
 msgid "Thank you for your feedback!"
 msgstr "Dziękujemy za twoją opinię!"
 
-#: .\FatigueTester\views.py:92 .\FatigueTester\views.py:106
+#: .\FatigueTester\views.py:101 .\FatigueTester\views.py:115
 msgid "You are already logged in"
 msgstr "Użytkownik jest już zalogowany"
 
-#: .\FatigueTester\views.py:100
+#: .\FatigueTester\views.py:109
 msgid "You have been log out"
 msgstr "Wylogowano pomyślnie"
 
-#: .\FatigueTester\views.py:118
+#: .\FatigueTester\views.py:127
 msgid "You have been successfully registered"
 msgstr "Zarejestrowano pomyślnie"
 
 #: .\FatigueTester\views.py:152
+msgid "No .csv file detected"
+msgstr "Nie znaleziono pliku .csv"
+
+#: .\FatigueTester\views.py:198
 msgid "Supervisor cannot become patient"
 msgstr "Lekarz/Nadzorujący nie może zostać pacjentem"
 
-#: .\FatigueTester\views.py:156
+#: .\FatigueTester\views.py:202
 msgid "User is already your patient or a request is pending"
 msgstr ""
 "Użytkownik jest już Twoim pacjentem lub zaproszenie oczekuje na akceptacje"
 
-#: .\FatigueTester\views.py:163
+#: .\FatigueTester\views.py:209
 msgid "Invitation Send"
 msgstr "Wysłano Zaproszenie"
 
-#: .\FatigueTester\views.py:180
+#: .\FatigueTester\views.py:226
 msgid "User not found."
 msgstr "Nie odnaleziono użytkownika"
 
-#: .\FatigueTester\views.py:194
+#: .\FatigueTester\views.py:240
 msgid "You don't have access to this Patient"
 msgstr "Nie masz dostępu do tego Pacjenta"
 
-#: .\FatigueTester\views.py:240
+#: .\FatigueTester\views.py:303
 msgid "Invitation accepted."
 msgstr "Zaakceptowano zaproszenie."
 
-#: .\FatigueTester\views.py:249
+#: .\FatigueTester\views.py:312
 msgid "Invitation declined."
 msgstr "Odrzucono zaproszenie."
 
-#: .\FatigueTester\views.py:258
+#: .\FatigueTester\views.py:321
 msgid "Supervisor Removed."
 msgstr "Usunięto Lekarza/Nadzorującego."
+
+msgid "E-mail"
+msgstr "E-mail"
 
 msgid "Supervisor"
 msgstr "Lekarz/Nadzorujący"

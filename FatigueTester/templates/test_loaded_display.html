@@ -10,13 +10,13 @@
                     <a class="btn btn-secondary" href="{% url 'database' %}"> {% trans "Return" %} </a>
                 </div>
                 <div class="col-10 text-center">
-                    <h2> {% trans 'Test from' %}: {{ test_date }} </h2>
+                    <h2> {% trans 'Test from file' %}: {{ filename }} </h2>
                 </div>
             </div>
         </div>
     </div>
 
-    {% if test_answers %}
+    {% if response_times_one %}
         <div class="row mb-5">
             <div class="col-md-6">
                 <div class="card">
@@ -59,7 +59,6 @@
                 {% endfor %}
             </tbody>
         </table>
-        <a class="btn btn-primary mt-3 mb-5" href="{% url 'download_test_result' test_id %}">{% trans "Download as .csv" %}</a>
     {% else %}
         <h3 class="mt-5 mb-3 text-center fst-italic">{% trans "Somehow, this test has no answers." %}</h3>
     {% endif %}

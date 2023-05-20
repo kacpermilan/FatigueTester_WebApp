@@ -141,7 +141,7 @@ USE_TZ = True
 
 # Set the directory where translation files will be stored
 LOCALE_PATHS = [
-    os.path.join(BASE_DIR, 'FatigueTester/localization'),
+    os.path.join(BASE_DIR, 'localization'),
 ]
 
 # Static files (CSS, JavaScript, Images)
