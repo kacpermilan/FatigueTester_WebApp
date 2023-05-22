@@ -2,17 +2,9 @@
 Django Web Application used for testing the mental fatigue of a user, which spends most of their day staring at screen.
 To achieve it, application will use standarized, fatigue-assesing tests.
 
-# Requirements
- - Modele (min 3) i formularze
-    - System logowania dla użyszkodników -> loginy i hasła -> jeden do wielu LUB wiele do wielu jeśli lekarz medycyny/specjalista do nadzoru
-    - Ankieta do badania subiektywnych odczuć użyszkodnika dotyczących jego stanu -> jeden do wielu
-    - Wyniki testu -> jeden do wielu
-        - Wynik końcowy
-        - Wyniki poszczególnych podtestów
- - CSS -> Bootstrap
- - JS -> Coś się na pewno znajdzie, czy to do testów i ich obsługi, czy to do analizy wyników etc.
- - Widok z dynamiczną grafką = wykresiki
- - Eksport do .csv => wyniki testów/wykresików
- - Ewentualnie import tych danych z .csv-ki
- - Wszystkie bazy poza użytkownikami mogą mieć wyszukiwanie/filtrowanie oraz stronicowanie
- - Deploy this somewhere
+Application uses standarized `Stroop Test` for its basic functionality, where user is prompted to press appropriate buttons. 
+After that, based on the reaction speed and corectness their fatigue level is evaluated. 
+Algorithm classifies the user's result and the detailed tests results are plotted on the graph.
+
+Application have a users system with two user types: `pateint` and `supervisor`. 
+Both users have access to their tests (alongside test details) and survey database, while supervisors can also send the invitations to patients to gain access to their data.
