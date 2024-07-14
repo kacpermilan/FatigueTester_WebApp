@@ -2,7 +2,7 @@
 let startTime = new Date().getTime();
 
 //Defining the text
-const colors = [gettext("red"), gettext("blue"), gettext("green"), gettext("yellow"), gettext("black")];
+const colors = [gettext("czerwony"), gettext("niebieski"), gettext("zielony"), gettext("żółty"), gettext("czarny")];
 
 // Define an empty array to store table data
 let tableData = [];
@@ -22,9 +22,9 @@ let randomNumbertext = 10;
 let clockrestart = 0;
 
 // Popup content and display 1
-let popupcon = gettext("This test consists of two parts. In the first part you have to click on the button which color corresponds with the color of the text. Click the button bellow when you are ready to start.");
+let popupcon = gettext("Ten test składa się z dwóch części. W pierwszej części musisz kliknąć przycisk, którego kolor odpowiada kolorowi tekstu. Kliknij przycisk poniżej, gdy będziesz gotowy/a do rozpoczęcia.");
 document.getElementById("popup-overlay").style.display = "none";
-
+//This test consists of two parts. In the first part you have to click on the button which color corresponds with the color of the text. Click the button bellow when you are ready to start.
 
 // Functions to log table data to console
 function logTableData() {
@@ -156,7 +156,7 @@ function updateClock() {
 
     // Second part of test popup and time restart
     if (seconds > tests_duration && clockrestart < 2) {
-        popupcon = gettext("This the end of first part of the test. In the seccond part you have to click button of the color that describes the word. Click the button bellow when you are ready to start.")
+        popupcon = gettext("To koniec pierwszej części testu. W drugiej części musisz kliknąć przycisk o kolorze, który opisuje słowo. Kliknij przycisk poniżej, gdy będziesz gotowy/a do rozpoczęcia.")
         document.getElementById("popuptext").textContent = popupcon;
         document.getElementById("popup-overlay").style.display = "flex";
         if (clockrestart === 1) { // Show the popup overlay
@@ -165,7 +165,7 @@ function updateClock() {
             clock.textContent = "0";
         }
     }
-
+//This the end of first part of the test. In the seccond part you have to click button of the color that describes the word. Click the button bellow when you are ready to start.
     if (clockrestart === 2) {
         clockTime = new Date().getTime();
         clockInterval = null;
